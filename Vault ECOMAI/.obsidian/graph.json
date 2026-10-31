@@ -1,0 +1,39 @@
+{
+  "colorGroups": [
+    {
+      "query": "tag:#moc",
+      "color": {
+        "a": 1,
+        "rgb": 15026253
+      }
+    },
+    {
+      "query": "tag:#leccion",
+      "color": {
+        "a": 1,
+        "rgb": 4088797
+      }
+    },
+    {
+      "query": "tag:#concepto",
+      "color": {
+        "a": 1,
+        "rgb": 3187820
+      }
+    },
+    {
+      "query": "tag:#herramienta",
+      "color": {
+        "a": 1,
+        "rgb": 16214805
+      }
+    },
+    {
+      "query": "tag:#recurso",
+      "color": {
+        "a": 1,
+        "rgb": 9326278
+      }
+    }
+  ]
+}
