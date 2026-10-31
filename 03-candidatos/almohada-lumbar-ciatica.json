@@ -1,0 +1,43 @@
+{
+  "slug": "almohada-lumbar-ciatica",
+  "nombre": "Almohada Lumbar Hueso (Ciática) + Bono Ebook",
+  "tipo": "fisico-local",
+  "nicho": "Descanso y columna",
+  "dolor": "Dolor de cintura/ciático a las 3 AM: el hueco bajo la cintura cuando se duerme boca arriba",
+  "referencia_afuera": "Alignex Pro: 337 ads, 130 días, USD 60 + upsell almohada de rodillas USD 27,95",
+  "mecanismo_culpable": "El hueco lumbar a las 3 AM (Alignex culpa al canal espinal que se cierra al acostarse)",
+  "proveedor": "100% local. 9 fabricantes de espuma contactados el 30/10 (Dubeflex, Jomaro, Schwartz, Tapitel, SleepTime, Ozz, MTL, CAMSI, Fábricas Unidas). Costo objetivo <= $10.000-$12.000",
+  "precio": "$49.900 (1u) · $74.900 (combo Lumbar + Rodillas, 'el más elegido') · $84.900 (pack x2). Todos con Ebook Ciática 21 Días GRATIS",
+  "cpa_breakeven": "CPA objetivo <= $22.000 en 1u, <= $30.000 en combo (ROAS >= 2,5). Test: USD 100",
+  "rol": "Físico #1. Hermano directo de la Almohada de Rodillas (Marca 1, activa desde el 08/10)",
+  "scores": {
+    "afuera": {
+      "score": 19,
+      "evidencia": "Alignex Pro en GetHookd: 337 ads activos, 130 días al aire (muy por encima del piso de 30 días y del rango 200-500 ads). Embudo monoproducto con upsell."
+    },
+    "dolor_ar": {
+      "score": 20,
+      "evidencia": "Trends AR: ciática y dolor lumbar, dolor masivo y evergreen. En YouTube/TikTok los videos de 'toalla enrollada en el hueco de la cintura' tienen 160k-630k vistas. Ángulo AR = 'ciático / dolor de cintura a las 3 AM', no 'estenosis'."
+    },
+    "hueco_meta": {
+      "score": 19,
+      "evidencia": "En Meta AR nadie vende el rodillo hueso para dormir. Ver [[Radar AR - Almohada de rodillas y fascitis]]."
+    },
+    "operativa": {
+      "score": 18,
+      "evidencia": "Fabricación local en espuma: no pasa por Aduana ni ANMAT. 9 proveedores ya contactados. Riesgo: que entreguen cilindro liso en vez de la forma de hueso tallada."
+    },
+    "margen": {
+      "score": 19,
+      "evidencia": "Costo <= $12.000 contra precio $49.900 = markup x4+. Ecosistema real: se suma a Marca 1 y comparte order bump (loción de magnesio) y bono (ebook ciática) a costo $0."
+    }
+  },
+  "gates_fallados": [],
+  "flags": [],
+  "pendientes": [
+    "Recibir las cotizaciones de los 9 fabricantes contactados el 30/10",
+    "Confirmar que entreguen la forma de hueso tallada real, no el cilindro liso"
+  ],
+  "fuente_vault": "Vault ECOMAI/06 Analisis compartido/Producto - Almohada lumbar ciatica.md + Vault ECOMAI/05 Plan de accion/Comparativa integral AR y Planificacion - 31 octubre.md",
+  "fecha_evaluacion": "2026-10-31"
+}

@@ -1,0 +1,46 @@
+{
+  "slug": "manta-refrescante-perros",
+  "nombre": "Manta Refrescante para Perros",
+  "tipo": "fisico-courier",
+  "nicho": "",
+  "dolor": "Golpe de calor en perros",
+  "referencia_afuera": "Kovah: 206 ads · The Dog Hub: 269 ads",
+  "mecanismo_culpable": "",
+  "proveedor": "",
+  "precio": "",
+  "cpa_breakeven": "",
+  "rol": "Descartado",
+  "scores": {
+    "afuera": {
+      "score": null,
+      "evidencia": ""
+    },
+    "dolor_ar": {
+      "score": null,
+      "evidencia": ""
+    },
+    "hueco_meta": {
+      "score": null,
+      "evidencia": ""
+    },
+    "operativa": {
+      "score": null,
+      "evidencia": ""
+    },
+    "margen": {
+      "score": null,
+      "evidencia": ""
+    }
+  },
+  "gates_fallados": [
+    "Contiene gel pesado (1,5-3 kg por manta): importar por courier es carísimo",
+    "Tiene talles S/M/L/XL que parten el stock (contra el MUST de 1-3 SKUs)",
+    "Gadnic ya domina MELI (+100 vendidos a $66.649, 539 publicaciones desde $32.590) con 6 cuotas y envío Full"
+  ],
+  "flags": [
+    "El vault puntuó estos 4 como grupo (<60/100) sin desglose por eje. No se inventan scores: quedan sin calificar, el gate manda."
+  ],
+  "pendientes": [],
+  "fuente_vault": "Vault ECOMAI/05 Plan de accion/Comparativa integral AR y Planificacion - 31 octubre.md",
+  "fecha_evaluacion": "2026-10-31"
+}

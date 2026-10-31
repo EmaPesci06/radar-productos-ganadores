@@ -1,0 +1,45 @@
+{
+  "slug": "jabon-caqui-nonenal",
+  "nombre": "Jabón / Gel de Caqui (Nonenal, olor de la edad) Pack x3",
+  "tipo": "fisico-lab",
+  "nicho": "Nicho laboratorio local / cosmética",
+  "dolor": "El 'olor a viejo' después de los 40 que el jabón común no disuelve",
+  "referencia_afuera": "Kaori: 49k → 556k visitas/mes · Sap Skin: 357 ads",
+  "mecanismo_culpable": "El 2-nonenal: un enemigo químico nuevo después de los 40. No dice 'estás sucio', bautiza un culpable externo",
+  "proveedor": "Laboratorio cosmético local a façon, habilitación simplificada por Disp. ANMAT 7939/2025 Grado 1. Extracto de caqui + té verde. Costo estimado $2.500-$4.000/barra",
+  "precio": "Pack x3 barras $34.900 · Kit 2 barras + 1 gel de ducha $42.900. Barra suelta $19.900 + envío pago para forzar el pack",
+  "cpa_breakeven": "CPA breakeven $16.000-$21.000. Objetivo <= $14.000 (ROAS >= 2,5 + recompra a 60 días). Test: USD 50-80",
+  "rol": "Abre la vertical del Nicho Laboratorio Local",
+  "scores": {
+    "afuera": {
+      "score": 20,
+      "evidencia": "Kaori pasó de 49k a 556k visitas/mes. Sap Skin 357 ads. El mejor puntaje de evidencia afuera de toda la cartera."
+    },
+    "dolor_ar": {
+      "score": 18,
+      "evidencia": "Trends AR: pico viral creciente en 12 meses porque medios locales (El Cronista, La Voz) publicaron notas explicando qué es el 2-nonenal. VOCC local: 'mi papá se baña todos los días pero su cuarto y las fundas tienen ese olor a encerrado'."
+    },
+    "hueco_meta": {
+      "score": 18,
+      "evidencia": "Naturalmente recién testea hace 16 días y NO usa el ángulo de la edad (+45). Solo usa imágenes genéricas, no UGC."
+    },
+    "operativa": {
+      "score": 15,
+      "evidencia": "El eje más flojo: importarlo es NO-GO (ANMAT frena cosméticos sin legajo). La salida es fabricar a façon bajo el legajo del laboratorio local. Suma un trámite y un intermediario."
+    },
+    "margen": {
+      "score": 19,
+      "evidencia": "Costo ~$3.000 vs pack x3 a $34.900. Consumible con recompra mensual real."
+    }
+  },
+  "gates_fallados": [],
+  "flags": [
+    "Ventana competitiva: salir antes de que Naturalmente escale o descubra el ángulo +45"
+  ],
+  "pendientes": [
+    "Contactar 5 laboratorios cosméticos terceristas en AMBA con legajo ANMAT vigente",
+    "Pasar el candidato a archivo formal 'Producto - Jabon de caqui nonenal.md' en 06 Analisis compartido"
+  ],
+  "fuente_vault": "Vault ECOMAI/05 Plan de accion/Comparativa integral AR y Planificacion - 31 octubre.md",
+  "fecha_evaluacion": "2026-10-31"
+}

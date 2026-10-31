@@ -1,0 +1,44 @@
+{
+  "slug": "ebook-somaticos-nervio-vago",
+  "nombre": "Ebook #1: Reto 28 Días Somáticos + Nervio Vago",
+  "tipo": "digital",
+  "nicho": "Salud / mentalidad",
+  "dolor": "Ansiedad, cortisol alto, tensión acumulada en el psoas y el cuello",
+  "referencia_afuera": "Isabel Navarro: 55-65 ads, 172 días activa, Hotmart USD 9,90 con 4 bonos · Newmindstart: 319 ads somáticos + 97 psoas",
+  "mecanismo_culpable": "El cortisol atrapado en el psoas (mecanismo culpable externo, regla 1 del patrón)",
+  "proveedor": "Producción propia: Claude + Gamma + Canva. Videos cortos de 2 minutos sin hablar a cámara",
+  "precio": "$19.900 ARS con Mercado Pago + Order Bump de $9.900. Ebook ilustrado + 4 bonos (Liberación del Psoas, Mapa del Nervio Vago, SOS Ansiedad Nocturna, Audio Guía)",
+  "cpa_breakeven": "CPA <= $15.000. Test: USD 50 (~$78.000), criterio >= 5 ventas y take rate del bump >= 20%",
+  "rol": "Digital #1. El primero a lanzar de los ebooks",
+  "scores": {
+    "afuera": {
+      "score": 19,
+      "evidencia": "Isabel Navarro 172 días activa cumple 100% M8-03: >= 20 ads, sin marca personal fuerte, un solo producto. Newmindstart 319 ads en somáticos."
+    },
+    "dolor_ar": {
+      "score": 18,
+      "evidencia": "Trends AR: 'nervio vago' y 'cortisol' multiplicaron x3 su interés en AR en 24 meses. El libro 'Estimula tu nervio vago' de Antonio Valenzuela es best-seller en Yenny El Ateneo."
+    },
+    "hueco_meta": {
+      "score": 19,
+      "evidencia": "Hueco de COBRO, no de producto: ningún operador local cobra en pesos con Mercado Pago. Isabel Navarro cobra en moneda extranjera con español neutro; Patricia Vega MD en USD. Entrar en ARS con voseo es el diferencial."
+    },
+    "operativa": {
+      "score": 20,
+      "evidencia": "Cero ANMAT, cero aduana, cero stock. Producción propia en días."
+    },
+    "margen": {
+      "score": 17,
+      "evidencia": "Margen digital ~90%, pero ticket $19.900 con CPA objetivo $15.000 deja poco colchón: depende del order bump y de la escalera. Por eso 17 y no 19."
+    }
+  },
+  "gates_fallados": [],
+  "flags": [
+    "Margen el eje más flojo: el ticket de $19.900 con CPA $15.000 exige que el order bump funcione"
+  ],
+  "pendientes": [
+    "Desglosar la estructura exacta de la landing de Isabel Navarro (herramientas-somaticas.netlify.app)"
+  ],
+  "fuente_vault": "Vault ECOMAI/05 Plan de accion/Comparativa integral AR y Planificacion - 31 octubre.md",
+  "fecha_evaluacion": "2026-10-31"
+}

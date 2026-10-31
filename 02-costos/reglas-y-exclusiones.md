@@ -1,7 +1,46 @@
 # Reglas de importación y lista de exclusiones
 
-**Este es el primer filtro de todo el sistema.** Un producto que no pasa acá no
-merece ni un minuto de research.
+**Este es el primer filtro de las importaciones.** Un producto que no pasa acá no
+se importa.
+
+> ## ⚠️ Corrección importante (31/10/2026)
+>
+> La v1 de este archivo trataba la lista de exclusiones como un **gate universal de
+> producto**. Está mal, y el error no es menor: **la lista es de IMPORTAR, no del
+> producto.** Con el vault ECOMAI cargado quedó claro que las dos verticales más
+> fuertes del ranking esquivan la lista entera porque **no importan nada**:
+>
+> | Vertical | Cómo esquiva la lista |
+> |---|---|
+> | **Espuma y textil local** (almohadas) | Se fabrica acá. No pasa por Aduana ni por ANMAT. Cero gates. |
+> | **Nicho laboratorio local a façon** (jabón de caqui, loción de magnesio) | Un cosmético **importado** es NO-GO por ANMAT. El **mismo cosmético fabricado a façon** en un laboratorio argentino habilitado entra por habilitación simplificada (**Disp. ANMAT 7939/2025**, Grado 1), bajo el legajo del laboratorio. |
+>
+> Con mi gate original, el jabón de caqui (90/100, el mejor puntaje de evidencia
+> afuera de toda la cartera) habría muerto en el primer filtro sin research. Igual la
+> loción de magnesio (89/100).
+>
+> **La regla correcta:** antes de aplicar esta lista, preguntar **de dónde viene el
+> producto**. Si se fabrica o se terceriza en Argentina, esta lista no aplica. Si se
+> importa, aplica entera.
+
+### La salida local
+
+El orden de preferencia del curso para resolver el abastecimiento:
+
+| Prioridad | Vía | Cuándo | Dónde |
+|---|---|---|---|
+| **1** | **Fabricación local** (espuma, textil, tapicería) | Producto voluminoso o pesado | Fábricas de poliuretano, Once, Avellaneda, talleres textiles |
+| **2** | **Laboratorio local a façon** | Cosméticos y suplementos | Laboratorio cosmético habilitado en AMBA, bajo Disp. ANMAT 7939/2025 |
+| **3** | **Mayorista local** | Lo que ya se importa y se vende acá | Avellaneda a un Toque, Once, importadores |
+| **4** | **Courier desde Alibaba** | Solo accesorios livianos (<50 g) y no regulados | Trade Assurance, DDP puerta a puerta |
+
+> **El dato que ordena todo esto:** en el ranking maestro del 31/10, los candidatos
+> `fisico-courier` promedian **33,4 puntos sobre 100** y su mejor caso llega a 84. Los
+> `fisico-local` promedian **89**. Importar por courier no es neutral: es
+> sistemáticamente la peor ruta en el mercado argentino, por aduana, por el tope de
+> 50 kg y por el ancla de precio de Mercado Libre.
+>
+> Correr `python3 01-scorecard/calcular_score.py` y mirar el resumen por tipo.
 
 Vigencia de las referencias: **octubre 2026**. Los límites, franquicias, alícuotas y
 el tipo de cambio cambian seguido — verificar en ARCA, Boletín Oficial y la cotización

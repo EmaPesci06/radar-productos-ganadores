@@ -1,5 +1,22 @@
 # Long-list inicial — pre-screening de direcciones
 
+> # 🗄️ OBSOLETO — reemplazado el 31/10/2026
+>
+> Este archivo es un pre-screening de **direcciones** que hice antes de tener el vault
+> ECOMAI, cuando no había candidatos reales cargados. Su conclusión central ("las dos
+> únicas direcciones verdes son eprods") era **un artefacto de no tener físicos
+> cargados**, no un hallazgo: con los 16 candidatos reales, los dos primeros puestos
+> son físicos de fabricación local.
+>
+> También contenía el error de tratar la lista de exclusiones como gate de producto, por
+> lo que descartó en 🔴 la categoría "cuidado personal, cosmética o suplemento" — que es
+> justamente la vertical del **nicho laboratorio local**, con dos candidatos en 90 y 89.
+>
+> **Para los candidatos reales:** `03-candidatos/README.md` y el ranking con
+> `python3 01-scorecard/calcular_score.py`.
+>
+> Se mantiene como registro de cómo se veía el problema antes del vault.
+
 > ⚠️ **Qué es y qué no es.** Esto es la **Fase 1 del Doc A**: pre-screening conceptual,
 > **sin búsquedas profundas**, usando priors + nuestras restricciones operativas + la
 > evidencia web de `00-marco/04-evidencia-web-2026.md`.

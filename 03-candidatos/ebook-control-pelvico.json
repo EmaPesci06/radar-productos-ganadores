@@ -1,0 +1,43 @@
+{
+  "slug": "ebook-control-pelvico",
+  "nombre": "Ebook #3: Control Pélvico Masculino 21 Días (Post-Próstata)",
+  "tipo": "digital",
+  "nicho": "Salud / dolor vergonzante",
+  "dolor": "Pérdidas de orina y goteo post-miccional en hombres +50, sin sondas y sin que nadie se entere",
+  "referencia_afuera": "Fortis Control Trainer: 374 ads, 176 días",
+  "mecanismo_culpable": "'10 minutos por día sentado en tu casa, sin sondas, sin pastillas y sin que nadie se entere'",
+  "proveedor": "Producción propia",
+  "precio": "$19.900 ARS",
+  "cpa_breakeven": "CPA <= $15.000. Test: USD 50",
+  "rol": "Digital #3. Captura el dolor de Fortis sin el freno ANMAT de importar un dispositivo médico",
+  "scores": {
+    "afuera": {
+      "score": 19,
+      "evidencia": "Fortis Control Trainer: 374 ads y 176 días, el volumen de ads más alto de toda la cartera."
+    },
+    "dolor_ar": {
+      "score": 17,
+      "evidencia": "Validado en Google AR por Centro Argentino de Urología, Hospital Posadas y Vive Plenitud. En MELI AR solo venden electroestimuladores con sonda rectal (rechazados por tabú en foros) o pañales para adultos."
+    },
+    "hueco_meta": {
+      "score": 19,
+      "evidencia": "En Meta AR solo hay 3 anuncios de un coach. Hueco casi total en un dolor con 374 ads afuera."
+    },
+    "operativa": {
+      "score": 20,
+      "evidencia": "Cero ANMAT, cero aduana, compra 100% privada. Es la jugada exacta de la regla 3 del patrón: cuando el dolor tiene traba física, entrar con ebook."
+    },
+    "margen": {
+      "score": 13,
+      "evidencia": "El más flojo de los ebooks (13): ticket $19.900 sin escalera ni bump definido todavía, y el público +50 puede tener CPA más alto."
+    }
+  },
+  "gates_fallados": [],
+  "flags": [
+    "Margen 13/20: definir order bump y escalera antes de testear",
+    "Ética: ángulo como experiencia, nunca como tratamiento médico"
+  ],
+  "pendientes": [],
+  "fuente_vault": "Vault ECOMAI/05 Plan de accion/Comparativa integral AR y Planificacion - 31 octubre.md",
+  "fecha_evaluacion": "2026-10-31"
+}

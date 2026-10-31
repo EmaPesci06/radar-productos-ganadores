@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """
-Calculadora del scorecard de productos ganadores.
+Scorecard de productos ganadores — vault ECOMAI.
 
-Lee las fichas JSON de 03-candidatos/, aplica los gates de NO-GO, pondera los ejes
-segun el tipo (fisico o eprod) y devuelve el ranking.
+Cinco ejes de 20 puntos, los mismos para fisicos y para ebooks, que es lo que
+permite que compitan en un solo ranking. Replica el scorecard usado en
+05 Plan de accion/Comparativa integral AR y Planificacion - 31 octubre.md.
 
 Uso:
     python3 01-scorecard/calcular_score.py
     python3 01-scorecard/calcular_score.py --detalle <slug>
-
-Formato de ficha: ver 03-candidatos/_plantilla-candidato.json
+    python3 01-scorecard/calcular_score.py --tipo digital
 """
 
 import argparse
@@ -21,46 +21,35 @@ import sys
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DIR_CANDIDATOS = os.path.join(RAIZ, "03-candidatos")
 
-# Pesos por tipo. Deben sumar 1.0 — se verifica al arrancar.
-PESOS = {
-    "fisico": {
-        "market_fit":   (0.30, "Market Fit"),
-        "unit_economics": (0.25, "Unit economics"),
-        "saturacion":   (0.15, "Saturacion / espacio"),
-        "operativa":    (0.15, "Operativa y regulatorio"),
-        "ecosistema":   (0.15, "Ecosistema (AOV/LTV)"),
-    },
-    "eprod": {
-        "demanda_pagada": (0.25, "Demanda pagada"),
-        "canal_cac":      (0.20, "Canal y CAC"),
-        "autoridad":      (0.20, "Autoridad / ventaja injusta"),
-        "escalera_ltv":   (0.20, "Escalera de valor / LTV"),
-        "entregabilidad": (0.15, "Entregabilidad"),
-    },
-}
+# Los 5 ejes del vault. 20 puntos cada uno, 100 en total.
+EJES = [
+    ("afuera",     "Evidencia afuera",      20),
+    ("dolor_ar",   "Demanda y dolor en AR",  20),
+    ("hueco_meta", "Hueco en Meta AR",       20),
+    ("operativa",  "Facilidad operativa",    20),
+    ("margen",     "Margen y ecosistema",    20),
+]
+
+# Un eje en 0-5 es bloqueante, pase lo que pase con el total.
+PISO_BLOQUEANTE = 5
 
 UMBRALES = [
-    (75, "GO claro",     "\033[92m"),
-    (60, "GO con flags", "\033[93m"),
-    (45, "Standby",      "\033[33m"),
-    (0,  "NO-GO",        "\033[91m"),
+    (88, "EJECUTAR YA",          "\033[92m"),
+    (80, "SEGUNDA OLA",          "\033[93m"),
+    (60, "SOLO BUMP O BONO",     "\033[33m"),
+    (0,  "DESCARTADO",           "\033[91m"),
 ]
 RESET = "\033[0m"
+GRIS = "\033[90m"
 
-
-def validar_pesos():
-    for tipo, ejes in PESOS.items():
-        total = sum(p for p, _ in ejes.values())
-        if abs(total - 1.0) > 1e-9:
-            sys.exit(f"ERROR de configuracion: los pesos de '{tipo}' suman {total}, deben sumar 1.0")
+TIPOS = ("fisico-local", "fisico-courier", "fisico-lab", "digital")
 
 
 def cargar_candidatos():
     fichas = []
-    patron = os.path.join(DIR_CANDIDATOS, "*.json")
-    for ruta in sorted(glob.glob(patron)):
+    for ruta in sorted(glob.glob(os.path.join(DIR_CANDIDATOS, "*.json"))):
         nombre = os.path.basename(ruta)
-        if nombre.startswith("_"):       # _plantilla-candidato.json y similares
+        if nombre.startswith("_"):
             continue
         try:
             with open(ruta, encoding="utf-8") as f:
@@ -75,171 +64,154 @@ def cargar_candidatos():
 
 
 def evaluar(ficha):
-    """Devuelve (score, veredicto, gates_fallados, detalle_por_eje, musts_fallados)."""
-    tipo = ficha.get("tipo")
-    if tipo not in PESOS:
-        return None, "TIPO INVALIDO", [f"tipo '{tipo}' no es 'fisico' ni 'eprod'"], [], []
-
-    ejes = PESOS[tipo]
+    """Devuelve (total, veredicto, gates, bloqueantes, detalle)."""
     scores = ficha.get("scores", {})
-
-    # --- Gates ---
     gates = [g for g in ficha.get("gates_fallados", []) if g]
 
-    # Gate estructural: 2+ MUSTs fallados (score 0-2 en un eje marcado como must)
-    musts_fallados = []
-    for clave in ejes:
+    detalle, total, sin_calificar = [], 0, []
+    bloqueantes = []
+    for clave, etiqueta, tope in EJES:
         item = scores.get(clave, {})
         valor = item.get("score")
         if valor is None:
-            musts_fallados.append(f"{clave}: sin calificar")
-        elif valor <= 2 and item.get("es_must", True):
-            musts_fallados.append(f"{clave}: {valor}/5")
-    if len(musts_fallados) >= 2:
-        gates.append(f"2+ MUSTs fallados ({len(musts_fallados)})")
-
-    # --- Score ponderado ---
-    detalle, acumulado, peso_calificado = [], 0.0, 0.0
-    for clave, (peso, etiqueta) in ejes.items():
-        item = scores.get(clave, {})
-        valor = item.get("score")
-        if valor is None:
-            detalle.append((etiqueta, peso, None, 0.0, item.get("evidencia", "")))
+            sin_calificar.append(etiqueta)
+            detalle.append((etiqueta, tope, None, item.get("evidencia", "")))
             continue
-        valor = max(0, min(5, float(valor)))
-        aporte = (valor / 5.0) * peso * 100
-        acumulado += aporte
-        peso_calificado += peso
-        detalle.append((etiqueta, peso, valor, aporte, item.get("evidencia", "")))
+        valor = max(0, min(tope, int(valor)))
+        total += valor
+        if valor <= PISO_BLOQUEANTE:
+            bloqueantes.append(f"{etiqueta}: {valor}/{tope}")
+        detalle.append((etiqueta, tope, valor, item.get("evidencia", "")))
 
     if gates:
-        return 0.0, "NO-GO (gate)", gates, detalle, musts_fallados
+        return total, "DESCARTADO (gate)", gates, bloqueantes, detalle
+    if sin_calificar:
+        return total, f"PARCIAL (falta: {', '.join(sin_calificar)})", gates, bloqueantes, detalle
 
-    if peso_calificado == 0:
-        return None, "SIN CALIFICAR", [], detalle, musts_fallados
-
-    # Si falta calificar ejes, se informa el score sobre lo calificado y se marca.
-    score = round(acumulado, 1)
-    veredicto = next(nombre for piso, nombre, _ in UMBRALES if score >= piso)
-    if musts_fallados and veredicto == "GO claro":
-        veredicto = "GO con flags"
-    if peso_calificado < 0.999:
-        veredicto += f" (parcial: {peso_calificado*100:.0f}% del peso calificado)"
-    return score, veredicto, gates, detalle, musts_fallados
+    veredicto = next(n for piso, n, _ in UMBRALES if total >= piso)
+    if bloqueantes and veredicto in ("EJECUTAR YA", "SEGUNDA OLA"):
+        veredicto = "FRENADO (eje bloqueante)"
+    return total, veredicto, gates, bloqueantes, detalle
 
 
 def color_de(veredicto):
     for _, nombre, c in UMBRALES:
         if veredicto.startswith(nombre):
             return c
-    return ""
+    if veredicto.startswith("FRENADO"):
+        return "\033[91m"
+    return GRIS
 
 
-def imprimir_ranking(fichas):
+def imprimir_ranking(fichas, filtro_tipo=None):
+    if filtro_tipo:
+        fichas = [f for f in fichas if f.get("tipo") == filtro_tipo]
+
     filas = []
     for ficha in fichas:
-        score, veredicto, gates, _, musts = evaluar(ficha)
-        filas.append((score, veredicto, gates, musts, ficha))
-
-    filas.sort(key=lambda r: (r[0] is None, -(r[0] or 0)))
+        total, veredicto, gates, bloq, _ = evaluar(ficha)
+        filas.append((total, veredicto, gates, bloq, ficha))
+    filas.sort(key=lambda r: -r[0])
 
     print()
-    print("=" * 78)
-    print("RANKING DE CANDIDATOS")
-    print("=" * 78)
+    print("=" * 96)
+    print("RANKING MAESTRO DE CANDIDATOS" + (f"  [tipo: {filtro_tipo}]" if filtro_tipo else ""))
+    print("=" * 96)
     if not filas:
-        print("\n  No hay fichas cargadas en 03-candidatos/.")
-        print("  Copia 03-candidatos/_plantilla-candidato.json y llenala.\n")
+        print("\n  No hay fichas cargadas en 03-candidatos/.\n")
         return
 
-    print(f"\n{'#':<3} {'Candidato':<30} {'Tipo':<8} {'Score':>7}  Veredicto")
-    print("-" * 78)
-    for i, (score, veredicto, gates, musts, ficha) in enumerate(filas, 1):
-        s = f"{score:.1f}" if score is not None else "  -"
+    print(f"\n{'#':<3} {'Candidato':<40} {'Tipo':<16} {'Score':>6}  Veredicto")
+    print("-" * 96)
+    for i, (total, veredicto, gates, bloq, ficha) in enumerate(filas, 1):
         c = color_de(veredicto)
-        nombre = ficha.get("nombre", ficha["slug"])[:29]
-        print(f"{i:<3} {nombre:<30} {ficha.get('tipo','?'):<8} {s:>7}  {c}{veredicto}{RESET}")
+        nombre = ficha.get("nombre", ficha["slug"])[:39]
+        print(f"{i:<3} {nombre:<40} {ficha.get('tipo','?'):<16} {total:>5}   {c}{veredicto}{RESET}")
         for g in gates:
             print(f"    \033[91m[gate]\033[0m {g}")
-        for m in musts:
-            if not gates:
-                print(f"    \033[93m[must]\033[0m {m}")
-    print("-" * 78)
+        for b in bloq:
+            print(f"    \033[91m[bloq]\033[0m {b}")
+    print("-" * 96)
 
-    ganadores = [f for f in filas if f[0] is not None and f[0] >= 60]
+    ejecutar = [f for f in filas if f[0] >= 88 and not f[2] and not f[3]]
     print()
-    if not ganadores:
-        print("  Ningun candidato alcanza el piso de 60 (GO con flags).")
-        print("  No hay winner que declarar todavia.")
-    elif len(ganadores) == 1:
-        print(f"  Unico candidato sobre el piso: {ganadores[0][4].get('nombre')}")
-        print("  Un winner sin competencia en el ranking no esta comparado: cargar mas candidatos.")
+    if not ejecutar:
+        print("  Ningun candidato en zona EJECUTAR YA (>=88 sin gates ni ejes bloqueantes).")
     else:
-        top, segundo = ganadores[0], ganadores[1]
-        margen = top[0] - segundo[0]
-        print(f"  Lider: {top[4].get('nombre')} ({top[0]:.1f})")
-        print(f"  Segundo: {segundo[4].get('nombre')} ({segundo[0]:.1f})  —  margen {margen:.1f} pts")
-        if margen < 5:
-            print("  Margen < 5 pts: empate tecnico. Decidir por el eje que mas importa hoy,")
-            print("  no por el score. Dejarlo escrito en 04-decision/decision-final.md.")
+        print(f"  EJECUTAR YA ({len(ejecutar)}):")
+        for total, _, _, _, ficha in ejecutar:
+            print(f"    {total:>3}  {ficha.get('nombre')}")
+        if len(ejecutar) > 1:
+            margen = ejecutar[0][0] - ejecutar[1][0]
+            if margen <= 2:
+                print()
+                print(f"  Los dos primeros estan a {margen} punto(s): empate tecnico.")
+                print("  No decide el score. Decide el eje que mas importa hoy, y queda escrito")
+                print("  en 04-decision/decision-final.md.")
     print()
+
+    # Resumen por tipo: sirve para ver si la cartera esta desbalanceada.
+    por_tipo = {}
+    for total, _, gates, bloq, ficha in filas:
+        t = ficha.get("tipo", "?")
+        por_tipo.setdefault(t, []).append(total)
+    if len(por_tipo) > 1 and not filtro_tipo:
+        print("  Por tipo:")
+        for t in sorted(por_tipo, key=lambda k: -max(por_tipo[k])):
+            v = por_tipo[t]
+            print(f"    {t:<16} {len(v):>2} candidato(s)   mejor {max(v):>3}   promedio {sum(v)/len(v):>5.1f}")
+        print()
 
 
 def imprimir_detalle(fichas, slug):
     ficha = next((f for f in fichas if f["slug"] == slug or f.get("nombre") == slug), None)
     if not ficha:
-        disponibles = ", ".join(f["slug"] for f in fichas) or "(ninguno)"
-        sys.exit(f"No encontre '{slug}'. Disponibles: {disponibles}")
+        disp = "\n    ".join(f["slug"] for f in fichas) or "(ninguno)"
+        sys.exit(f"No encontre '{slug}'. Disponibles:\n    {disp}")
 
-    score, veredicto, gates, detalle, musts = evaluar(ficha)
+    total, veredicto, gates, bloq, detalle = evaluar(ficha)
     print()
-    print("=" * 78)
-    print(f"{ficha.get('nombre', slug)}  [{ficha.get('tipo')}]")
-    print("=" * 78)
-    for campo in ("nicho", "mercado", "dolor", "mecanismo_unico", "ticket_objetivo"):
+    print("=" * 96)
+    print(f"{ficha.get('nombre', slug)}   [{ficha.get('tipo')}]")
+    print("=" * 96)
+    for campo in ("nicho", "dolor", "referencia_afuera", "mecanismo_culpable",
+                  "proveedor", "precio", "cpa_breakeven", "rol"):
         if ficha.get(campo):
-            print(f"  {campo.replace('_',' ').capitalize():<18} {ficha[campo]}")
+            print(f"  {campo.replace('_',' ').capitalize():<20} {ficha[campo]}")
     print()
-    print(f"{'Eje':<30} {'Peso':>6} {'Score':>7} {'Aporte':>8}")
-    print("-" * 78)
-    for etiqueta, peso, valor, aporte, evidencia in detalle:
-        v = f"{valor:.0f}/5" if valor is not None else "   -"
-        print(f"{etiqueta:<30} {peso*100:>5.0f}% {v:>7} {aporte:>7.1f}")
+    print(f"{'Eje':<28} {'Tope':>5} {'Score':>7}")
+    print("-" * 96)
+    for etiqueta, tope, valor, evidencia in detalle:
+        v = f"{valor}" if valor is not None else "-"
+        marca = "  <- BLOQUEANTE" if valor is not None and valor <= PISO_BLOQUEANTE else ""
+        print(f"{etiqueta:<28} {tope:>5} {v:>7}{marca}")
         if evidencia:
-            print(f"    \033[90m{evidencia[:70]}\033[0m")
-    print("-" * 78)
-    s = f"{score:.1f}" if score is not None else "-"
-    print(f"{'TOTAL':<30} {'100%':>6} {'':>7} {s:>7}  →  {color_de(veredicto)}{veredicto}{RESET}")
-    if gates:
-        print("\n  GATES FALLADOS:")
-        for g in gates:
-            print(f"    \033[91m×\033[0m {g}")
-    if musts:
-        print("\n  MUSTs POR RESOLVER:")
-        for m in musts:
-            print(f"    \033[93m!\033[0m {m}")
-    if ficha.get("flags"):
-        print("\n  FLAGS:")
-        for f in ficha["flags"]:
-            print(f"    - {f}")
-    if ficha.get("pendientes"):
-        print("\n  PENDIENTES:")
-        for p in ficha["pendientes"]:
-            print(f"    - {p}")
+            for linea in [evidencia[i:i+88] for i in range(0, len(evidencia), 88)]:
+                print(f"    {GRIS}{linea}{RESET}")
+    print("-" * 96)
+    print(f"{'TOTAL':<28} {'100':>5} {total:>7}   ->  {color_de(veredicto)}{veredicto}{RESET}")
+    for seccion, clave in (("GATES FALLADOS", gates), ("FLAGS", ficha.get("flags", [])),
+                           ("PENDIENTES", ficha.get("pendientes", []))):
+        if clave:
+            print(f"\n  {seccion}:")
+            for x in clave:
+                print(f"    - {x}")
+    if ficha.get("fuente_vault"):
+        print(f"\n  {GRIS}Fuente: {ficha['fuente_vault']}{RESET}")
     print()
 
 
 def main():
-    validar_pesos()
-    ap = argparse.ArgumentParser(description="Scorecard de productos ganadores")
-    ap.add_argument("--detalle", metavar="SLUG", help="desglose eje por eje de un candidato")
+    ap = argparse.ArgumentParser(description="Scorecard de productos ganadores (vault ECOMAI)")
+    ap.add_argument("--detalle", metavar="SLUG", help="desglose eje por eje")
+    ap.add_argument("--tipo", choices=TIPOS, help="filtrar el ranking por tipo")
     args = ap.parse_args()
 
     fichas = cargar_candidatos()
     if args.detalle:
         imprimir_detalle(fichas, args.detalle)
     else:
-        imprimir_ranking(fichas)
+        imprimir_ranking(fichas, args.tipo)
 
 
 if __name__ == "__main__":

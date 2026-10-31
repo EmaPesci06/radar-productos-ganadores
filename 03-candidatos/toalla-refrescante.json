@@ -1,0 +1,46 @@
+{
+  "slug": "toalla-refrescante",
+  "nombre": "Toalla Refrescante (Sofocos / Verano)",
+  "tipo": "fisico-courier",
+  "nicho": "",
+  "dolor": "Sofocos nocturnos de la menopausia",
+  "referencia_afuera": "CoolTowel: 112 ads · MS Support: 260 ads",
+  "mecanismo_culpable": "",
+  "proveedor": "",
+  "precio": "",
+  "cpa_breakeven": "",
+  "rol": "Solo como regalo/bump de verano si se compra en Once a $2.500",
+  "scores": {
+    "afuera": {
+      "score": null,
+      "evidencia": ""
+    },
+    "dolor_ar": {
+      "score": null,
+      "evidencia": ""
+    },
+    "hueco_meta": {
+      "score": null,
+      "evidencia": ""
+    },
+    "operativa": {
+      "score": null,
+      "evidencia": ""
+    },
+    "margen": {
+      "score": null,
+      "evidencia": ""
+    }
+  },
+  "gates_fallados": [
+    "Commodity quemado en MELI: $7.999 la unidad, packs x10 a $28.591",
+    "CPA breakeven de apenas $8.000-$9.000 con el x3 a $24.900",
+    "Pico estacional puro noviembre-febrero: ya no dan los tiempos para producir o importar de cero"
+  ],
+  "flags": [
+    "El vault puntuó estos 4 como grupo (<60/100) sin desglose por eje. No se inventan scores: quedan sin calificar, el gate manda."
+  ],
+  "pendientes": [],
+  "fuente_vault": "Vault ECOMAI/05 Plan de accion/Comparativa integral AR y Planificacion - 31 octubre.md",
+  "fecha_evaluacion": "2026-10-31"
+}

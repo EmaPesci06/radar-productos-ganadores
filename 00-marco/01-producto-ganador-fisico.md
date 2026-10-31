@@ -8,6 +8,84 @@ estamos evaluando.
 > necesita un link que se pueda abrir. Sin evidencia → score 0-1 y se declara
 > "sin evidencia suficiente". Mejor un NO-GO conservador que un GO inflado.
 
+> **Actualizado el 31/10/2026** con el vault ECOMAI: se sumó la etapa 0 (búsqueda en
+> GetHookd), la fórmula del hueco y el patrón de 5 reglas, que antes faltaban porque
+> solo tenía las skills sincronizadas y no el material del curso.
+
+---
+
+## 0. Antes del checklist: de dónde sale el candidato
+
+**La idea de fondo:** no se buscan productos sueltos. Se buscan **tiendas ganadoras
+completas** de otros países (chicas, no gigantes) para copiar el producto, los ángulos
+y el tipo de creativo, y adaptarlos a Argentina (M2-01, M1-02).
+
+### Filtros en GetHookd
+
+| Filtro | Valor |
+|---|---|
+| Performance validado, **run time** | **30 días o más** |
+| Anuncios activos | **entre 200 y 500**. Más de 500 suele ser tienda multiproducto |
+| Piso más laxo para empezar | más de 100 anuncios y más de 3 meses |
+| Orden | **Most impressions** con piso de 10-15 días, no solo el puntaje de Performance (se infla con pocos días de mucha inversión) |
+| **Buscar por el problema, no por el producto** | "hair", "cortisol", "rodilla" — no "crema" o "cápsulas" |
+| Países | validar también en países parecidos a AR (Colombia, Chile, Brasil), no solo EE.UU. |
+| Advertorials | Page type = advertorial/listicle, o imagen con copy de 250-350+ palabras. Funcionan mejor con público +50 |
+
+### Filtro de tienda ganadora (M2-03)
+
+- **Una sola tienda con un solo producto.** Abrir los primeros 3-5 links de anuncios y
+  confirmar que van a la misma landing.
+- Embudo completo: deseo en el header, autoridad, garantía, prueba social, FAQ que
+  responde objeciones, y al menos una oferta.
+- Hay creativos para tráfico frío, tibio y caliente.
+- Promesa de tiempo corto para ver el resultado, y garantía fuerte.
+- Producto con **efecto wow**: problema, solución y oferta en un solo video.
+- Preferir videos **editables** (producto con música y corte simple) a los de alguien
+  hablando a cámara: una marca nueva no tiene la autoridad que esos videos dan por hecha.
+- **Descartar** tiendas de catálogo o poco prolijas.
+
+### La fórmula del hueco
+
+> **Ganador afuera + pocos anunciantes enfocados en Meta AR + demanda probada en MELI.**
+
+Eso es el hueco. Los tres tienen que darse juntos: un ganador afuera sin demanda en
+MELI es una categoría que no existe acá; demanda en MELI sin hueco en Meta es una
+cancha ocupada.
+
+### Método de trabajo
+
+Cargar **25-30 candidatos** en la planilla (producto, link del anuncio, link de la
+página, cantidad de anuncios, notas). Se repite mucho: **la tasa de éxito ronda el
+50-60%** (M2-05, M2-11).
+
+### Punto de partida recomendado
+
+El **nicho laboratorio**: serums, cremas, cápsulas, gomitas, sprays. Se consigue de un
+proveedor local, con pedidos chicos, **sin importar** y con mucho margen (costo ~$5.000,
+venta ~$50.000). Hay que mirar el riesgo ANMAT, que se resuelve fabricando a façon
+bajo el legajo del laboratorio (Disp. ANMAT 7939/2025).
+
+---
+
+## 0-bis. El patrón de 5 reglas
+
+Del cruce de X (`@Br3ntGbs`, `@ecomrudolfs`) con GetHookd y Meta AR, en
+`05 Plan de accion/Comparativa integral AR y Planificacion - 31 octubre.md`:
+
+| # | Regla | Qué significa en Argentina |
+|---|---|---|
+| **1** | **Culpa biológica: "no sos vos, es X"** | El hook tiene que **bautizar un mecanismo culpable externo**: el 2-nonenal, el hueco lumbar a las 3 AM, el cortisol atrapado en el psoas. Kaori no dice "estás sucio": presenta un enemigo químico que el jabón común no disuelve |
+| **2** | **Economía de pack o consumible oculto** | Los costos fijos por pedido (envío ~$7.000 + fulfillment ~$1.500 + CPA ~$15.000) **matan cualquier unidad suelta de menos de $40.000**. La oferta frontal tiene que ser pack x3, trimestral o kit |
+| **3** | **Cruzar físico ↔ digital en el mismo dolor** | Si el dolor tiene traba física (ANMAT), entrar con un **ebook en ARS**. Si el físico es fuerte, el ebook va de **bono gratis** para destruir objeciones. Es lo que hace *Vida Sin Ciática*: vende la crema y regala la guía |
+| **4** | **Dolor vergonzante = compra 100% online** | Nadie va a una farmacia de barrio a pedir "jabón para el olor a viejo" ni un ejercitador para pérdidas de orina. Priorizar dolores donde el cliente **prefiere comprar en secreto** y recibir una caja discreta |
+| **5** | **Soberanía de stock local vs. trampa del courier** | Priorizar lo que se fabrica en espuma/textil local o laboratorio a façon. Dejar el courier solo para accesorios <50 g no regulados |
+
+> **El filtro real no es Meta Ads.** El hallazgo central del relevamiento: en casi
+> todos los candidatos la cancha publicitaria argentina está **casi vacía**. Lo que
+> mata los productos es **la fricción operativa**: ANMAT, volumen en courier y el ancla
+> de precio de Mercado Libre.
+
 ---
 
 ## 1. Los 7 MUSTs/NICEs de entrada (checklist global)
@@ -75,6 +153,9 @@ flag amarilla; si queda **muy** lejos, NO-GO.
 > precio de Alibaba. En productos baratos por courier el multiplicador real fue
 > **×3,1** (ver `00-marco/03-lecciones-casos-previos.md`). Usar
 > `02-costos/costo-puesto-ar.py` antes de aplicar la tabla.
+>
+> Y para saber si el precio **cierra** (no solo si el markup da), correr
+> `02-costos/rentabilidad-ar.py`: es el CPA de breakeven el que manda, no el markup.
 
 ### 3.3 Proveedor
 

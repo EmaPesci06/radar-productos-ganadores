@@ -27,13 +27,14 @@ floja entra con score bajo.
 | Carpeta | Qué hay |
 |---|---|
 | `00-marco/01-producto-ganador-fisico.md` | Los criterios para productos físicos, destilados de nuestro propio sistema (Doc A + Radar AdLibrary) |
-| `00-marco/02-producto-ganador-eprod.md` | Los criterios para productos digitales. Ejes distintos: el margen es ~90%, lo que mata es el CAC |
+| `00-marco/02-producto-ganador-eprod.md` | Los criterios para ebooks e infoproductos, del Módulo 8 del curso |
 | `00-marco/03-lecciones-casos-previos.md` | Lo que ya nos pasó y no hay que repetir (incluye la primera importación real, sep-oct 2026) |
 | `00-marco/04-evidencia-web-2026.md` | Lo que dice la web hoy, con links y nivel de confianza declarado |
 | `01-scorecard/` | Matriz de decisión con pesos, gates de NO-GO y calculadora |
-| `02-costos/` | Costo puesto en Argentina (físicos) y unit economics (eprods) |
+| `02-costos/` | **`rentabilidad-ar.py`** (CPA y ROAS de breakeven, el número que manda), costo puesto en AR, y reglas de importación |
 | `03-candidatos/` | Una ficha por candidato + long-list inicial |
-| `04-decision/decision-final.md` | El acta de decisión. Hoy: **PENDIENTE** |
+| `04-decision/decision-final.md` | El acta de decisión. Hoy: **desbloqueada, 16 candidatos cargados** |
+| `Vault ECOMAI/` | El vault de Obsidian con la transcripción completa del curso (11 módulos, 334 archivos). **Es la fuente de verdad** de todos los criterios |
 | `templates/` | Doc A y Doc B en blanco, listos para llenar |
 
 ---
@@ -83,13 +84,33 @@ Están sincronizadas en tu cuenta y son la fuente de los criterios de `00-marco/
 
 ---
 
-## Estado actual
+## Estado actual (31/10/2026)
 
-- ✅ Marco de criterios (físicos y eprods)
-- ✅ Scorecard con pesos y gates
-- ✅ Calculadoras de costo y de score
-- ✅ Long-list inicial de direcciones candidatas (derivada de web + nuestras restricciones)
-- ⬜ **Fichas de candidatos reales** — faltan los datos de la carpeta `Ecommerce Curso`
-- ⬜ **Decisión final** — bloqueada hasta tener al menos 3 candidatos con ficha completa
+- ✅ Marco de criterios, corregido contra el vault ECOMAI
+- ✅ Scorecard del vault: 5 ejes × 20 puntos, iguales para físicos y ebooks
+- ✅ Calculadoras: score, rentabilidad en AR (CPA/ROAS breakeven), costo puesto en AR
+- ✅ **16 candidatos cargados** (12 puntuados + 4 descartados con el motivo escrito)
+- 🟡 **Decisión: desbloqueada.** El sistema recomienda; la decisión es de Emanuel
 
-Ver `GAPS.md` para qué falta exactamente y cómo destrabarlo.
+### El ranking, en una línea
+
+**Almohada Lumbar Hueso (95/100)** como winner físico y **Ebook #1 Somáticos (93/100)**
+como winner digital — no compiten, se testean en paralelo con presupuestos distintos.
+Ver `04-decision/decision-final.md`.
+
+```bash
+python3 01-scorecard/calcular_score.py
+```
+
+### Lo que corregí al cargar el vault
+
+Las primeras versiones de este repo las escribí sin acceso al material del curso, y
+tres cosas estaban mal. Están documentadas en el archivo donde ocurrieron:
+
+| Qué | Dónde |
+|---|---|
+| Los pesos del scorecard eran míos; el vault ya tenía el suyo (5 ejes × 20) | `01-scorecard/README.md` |
+| El criterio de eprods pedía "autoridad propia"; el curso pide **lo contrario** (ofertas sin marca personal) | `00-marco/02-producto-ganador-eprod.md` |
+| Traté la lista de exclusiones como gate de producto; es gate de **importar** | `02-costos/reglas-y-exclusiones.md` |
+
+Ver `GAPS.md` para lo que todavía falta.

@@ -1,0 +1,42 @@
+{
+  "slug": "locion-magnesio-topico",
+  "nombre": "Loción / Spray de Magnesio Tópico Nocturno",
+  "tipo": "fisico-lab",
+  "nicho": "Nicho laboratorio local / cosmética",
+  "dolor": "Calambres nocturnos en el embarazo, piernas inquietas, insomnio",
+  "referencia_afuera": "8 Sheep Organics (escala fuerte en Meta/IG)",
+  "mecanismo_culpable": "",
+  "proveedor": "Mismo laboratorio a façon que el jabón de caqui, bajo Disp. ANMAT 7939/2025. Cloruro de magnesio + lavanda. Costo estimado $3.500-$4.500",
+  "precio": "$32.900 (1u) · $54.900 (pack x2) · Upsell post-compra $24.900 para quien compra Almohada de Embarazo o Lumbar",
+  "cpa_breakeven": "A calcular con 02-costos/rentabilidad-ar.py",
+  "rol": "Une la Marca de Almohadas con el Nicho Laboratorio y mete recompra mensual",
+  "scores": {
+    "afuera": {
+      "score": 17,
+      "evidencia": "8 Sheep Organics escala en Meta/IG para calambres nocturnos en el embarazo, piernas inquietas e insomnio."
+    },
+    "dolor_ar": {
+      "score": 18,
+      "evidencia": "En r/argentina y notas de La Nación crece el uso de magnesio transdérmico porque el citrato oral cae pesado al estómago."
+    },
+    "hueco_meta": {
+      "score": 19,
+      "evidencia": "En MELI solo hay frascos artesanales sin marca ni promesa de descanso nocturno. Nadie construyó la narrativa."
+    },
+    "operativa": {
+      "score": 16,
+      "evidencia": "Mismo laboratorio y mismo trámite que el jabón de caqui: se cotizan juntos y el costo fijo del legajo se reparte."
+    },
+    "margen": {
+      "score": 19,
+      "evidencia": "Costo ~$4.000 vs $32.900. Doble rol: producto propio Y upsell de las almohadas, lo que le da el CAC casi gratis en el segundo caso."
+    }
+  },
+  "gates_fallados": [],
+  "flags": [],
+  "pendientes": [
+    "Cotizar junto al jabón de caqui en el mismo laboratorio"
+  ],
+  "fuente_vault": "Vault ECOMAI/05 Plan de accion/Comparativa integral AR y Planificacion - 31 octubre.md",
+  "fecha_evaluacion": "2026-10-31"
+}

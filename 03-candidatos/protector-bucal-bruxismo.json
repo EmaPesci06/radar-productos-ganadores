@@ -1,0 +1,44 @@
+{
+  "slug": "protector-bucal-bruxismo",
+  "nombre": "Protector Bucal Nocturno Bruxismo (Pack x2)",
+  "tipo": "fisico-courier",
+  "nicho": "Salud / descanso",
+  "dolor": "Apretar los dientes de noche",
+  "referencia_afuera": "GrindGuard: 97 ads, 332 días · Remi: 195 ads, 208 días · Nattelyst: 132 ads, 216 días · InnovaLife: 366 días",
+  "mecanismo_culpable": "",
+  "proveedor": "Proveedor local (Kros/Gaon o Body Care, que ya tiene registro en farmacias) o Alibaba (thermoformable night guard)",
+  "precio": "Pack x2 + estuche $34.900",
+  "cpa_breakeven": "A calcular",
+  "rol": "GO con cuidado en el copy",
+  "scores": {
+    "afuera": {
+      "score": 19,
+      "evidencia": "Cuatro marcas con 200-366 días al aire. Evidencia muy fuerte y sostenida."
+    },
+    "dolor_ar": {
+      "score": 20,
+      "evidencia": "Demanda brutal: +10.000 vendidos en MELI a $21.999. El dolor_ar más alto de la cartera junto con la almohada lumbar y la embarazo."
+    },
+    "hueco_meta": {
+      "score": 19,
+      "evidencia": "0 marcas DTC en Meta AR. Solo odontólogos a $150.000 y BruxZen vendiendo un masajeador a $119.000."
+    },
+    "operativa": {
+      "score": 11,
+      "evidencia": "El eje bloqueante: en Google y redes AR los odontólogos hacen campaña activa diciendo que las placas blandas termomoldeables empeoran el bruxismo y dañan la ATM. Riesgo de reputación y de reclamo."
+    },
+    "margen": {
+      "score": 13,
+      "evidencia": "El ancla de MELI a $21.999 contra un pack x2 a $34.900 deja margen fino."
+    }
+  },
+  "gates_fallados": [],
+  "flags": [
+    "Posicionar como 'protector nocturno de descanso / alivio de emergencia en pack x2'",
+    "NUNCA prometer que reemplaza la placa rígida ni tratamiento de ATM",
+    "Los odontólogos argentinos hacen campaña activa en contra: esperar objeciones en comentarios"
+  ],
+  "pendientes": [],
+  "fuente_vault": "Vault ECOMAI/05 Plan de accion/Comparativa integral AR y Planificacion - 31 octubre.md",
+  "fecha_evaluacion": "2026-10-31"
+}

@@ -1,0 +1,45 @@
+{
+  "slug": "antifaz-vapor",
+  "nombre": "Antifaz de Vapor Autocalentable (sin aroma)",
+  "tipo": "fisico-courier",
+  "nicho": "Descanso",
+  "dolor": "Ojo seco y cansancio visual",
+  "referencia_afuera": "Lula Eye Mask: 144 ads, 79 días — pero 3 de sus 4 ganadores van al parche de cólicos, no al antifaz",
+  "mecanismo_culpable": "",
+  "proveedor": "Hebei Yinuan. Traer solo 500 sobres de vapor sin aroma (9 kg en courier)",
+  "precio": "Caja x10 a $34.900 — CPA breakeven de apenas $7.353",
+  "cpa_breakeven": "Breakeven $7.353: inviable como tienda en Meta AR",
+  "rol": "SOLO Order Bump en el checkout de las almohadas. NO-GO como tienda independiente",
+  "scores": {
+    "afuera": {
+      "score": 11,
+      "evidencia": "Lula Eye Mask tiene 144 ads pero 3 de sus 4 creativos ganadores van al parche de cólicos, no al antifaz. La evidencia afuera es para OTRO producto: por eso 11."
+    },
+    "dolor_ar": {
+      "score": 15,
+      "evidencia": "Dolor real pero de baja intensidad de compra."
+    },
+    "hueco_meta": {
+      "score": 18,
+      "evidencia": "Hay hueco, pero el hueco no alcanza cuando el CPA no cierra."
+    },
+    "operativa": {
+      "score": 10,
+      "evidencia": "Puesto en AR sale ~$1.032 c/u, x6,7 sobre Alibaba por el flete. Y 300 kits completos pesan 108 kg: rompen el tope de 50 kg del régimen courier."
+    },
+    "margen": {
+      "score": 14,
+      "evidencia": "CPA breakeven de $7.353. No se puede comprar tráfico a ese precio en Meta AR."
+    }
+  },
+  "gates_fallados": [
+    "CPA breakeven de $7.353, por debajo del piso de ~$10.000 comprable en Meta AR",
+    "300 kits completos pesan 108 kg y rompen el tope de 50 kg del régimen courier"
+  ],
+  "flags": [
+    "Rescatable como order bump sin aroma dentro de la marca de almohadas"
+  ],
+  "pendientes": [],
+  "fuente_vault": "Vault ECOMAI/06 Analisis compartido/Producto - Antifaz ojo seco.md + Vault ECOMAI/05 Plan de accion/Antifaz - competencia y rentabilidad.md",
+  "fecha_evaluacion": "2026-10-31"
+}

@@ -1,0 +1,42 @@
+{
+  "slug": "kit-motoquero",
+  "nombre": "Kit Motoquero / Delivery (Respaldo Lumbar + Panal de Gel)",
+  "tipo": "fisico-local",
+  "nicho": "Descanso y columna / trabajo",
+  "dolor": "Dolor de cintura y coxis después de 8 horas arriba de la moto",
+  "referencia_afuera": "MotoCush: 172 ads, 214 días al aire (Australia)",
+  "mecanismo_culpable": "",
+  "proveedor": "Taller local de tapicería de motos / espuma inyectada + base de gel panal (ya relevada en el Top 10)",
+  "precio": "Combo $54.900-$64.900",
+  "cpa_breakeven": "A calcular",
+  "rol": "Reserva de alto potencial. Océano azul total en AR para un público gigante",
+  "scores": {
+    "afuera": {
+      "score": 17,
+      "evidencia": "MotoCush 172 ads y 214 días al aire en Australia."
+    },
+    "dolor_ar": {
+      "score": 19,
+      "evidencia": "En r/MotosArg los repartidores de Rappi/PedidosYa se quejan a diario del dolor de cintura y coxis tras 8 hs, y dicen que el cuero de oveja tradicional 'junta barro y con la lluvia queda inutilizable'. VOCC cruda y específica."
+    },
+    "hueco_meta": {
+      "score": 20,
+      "evidencia": "0 marcas venden respaldo o cojín para moto en Meta AR. Hueco total."
+    },
+    "operativa": {
+      "score": 14,
+      "evidencia": "Requiere taller de tapicería de motos, que todavía no está validado. Es el eje flojo."
+    },
+    "margen": {
+      "score": 14,
+      "evidencia": "Sin proveedor cotizado no hay número de margen. 14 es provisorio."
+    }
+  },
+  "gates_fallados": [],
+  "flags": [],
+  "pendientes": [
+    "Validar con taller de tapicería local y cotizar"
+  ],
+  "fuente_vault": "Vault ECOMAI/05 Plan de accion/Comparativa integral AR y Planificacion - 31 octubre.md",
+  "fecha_evaluacion": "2026-10-31"
+}

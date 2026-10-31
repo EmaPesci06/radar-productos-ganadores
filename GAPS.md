@@ -1,96 +1,108 @@
 # Qué falta y cómo destrabarlo
 
+Actualizado **31/10/2026**, después de cargar el vault ECOMAI.
+
 ---
 
-## 1. 🔴 La carpeta `Ecommerce Curso` no se pudo leer — BLOQUEANTE
+## ✅ Resuelto: el vault llegó
 
-**Qué pedí:** acceso a la carpeta `Ecommerce Curso` de tu computadora, donde están los
-productos ganadores anteriores (físicos y eprods) y el material del curso.
+El bloqueante principal (no poder leer la carpeta `Ecommerce Curso`) se resolvió
+pusheando el **Vault ECOMAI** al repo: 11 módulos, 334 archivos, 6 MB con la
+transcripción completa del curso, los relevamientos de GetHookd y Radar AR, los
+análisis de producto y el plan de 6 semanas.
 
-**Qué pasó:** esta sesión corre en un contenedor en la nube, no en tu máquina. Tu
-computadora (`DESKTOP-HINTD1H`) tiene dos carpetas en la lista de Remote Control —
-`Ecommerce Curso` y `labia` — y **ninguna de las dos está disponible para sesiones en
-la nube**. La causa más probable es que esa computadora corre **Windows**: las carpetas
-de Remote Control solo se ofrecen a sesiones en la nube desde Mac o Linux.
+De ahí salieron los 16 candidatos, el scorecard real y todos los criterios corregidos.
 
-No es un permiso que puedas aprobar desde acá, y no hay forma de que yo lo destrabe.
+---
 
-### Tres formas de destrabarlo
+## 🟡 1. Lo que falta para cerrar la decisión
 
-| Opción | Cómo | Cuándo conviene |
+| # | Pendiente | Bloquea |
 |---|---|---|
-| **A. Sesión local** (recomendada) | Abrí Claude Code en tu máquina — la app de escritorio, o `claude` en una terminal dentro de la carpeta `Ecommerce Curso`. Ahí el acceso a archivos es directo y nativo. | Es lo más cómodo si el material es mucho o son muchos archivos |
-| **B. Subir el material acá** | Comprimí la carpeta (o la parte relevante) y adjuntala en el chat. Si son PDFs, docs o planillas, los leo igual | Si querés seguir en esta sesión y el material no es enorme |
-| **C. Pegarme lo esencial** | Los productos ganadores con sus números: producto, nicho, ticket, costo, resultado | Si solo hace falta la lista de candidatos y no todo el curso |
-
-**Si elegís A:** este repo ya está pusheado, así que cloná la branch
-`claude/affectionate-dirac-h7n4cg` y seguís desde donde quedó. Todo el marco, el
-scorecard y las calculadoras ya están ahí.
+| 1 | **Cotizaciones de los 9 fabricantes de espuma** contactados el 30/10 | El eje de margen de la almohada lumbar y la de embarazo. Sin costo real, el CPA breakeven es estimado |
+| 2 | **Cotización de 5 laboratorios cosméticos a façon** en AMBA | El eje de operativa del jabón de caqui (hoy 15/20) y de la loción de magnesio (16/20) |
+| 3 | **Doc A formal** de los 10 candidatos que no lo tienen | Hoy solo almohada lumbar y antifaz tienen archivo formal en `06 Analisis compartido/` |
+| 4 | **La sección de OpenAI** de los dos productos con archivo | En el flujo de 3 IA del vault, ChatGPT todavía no aportó proveedores, reseñas del producto de referencia ni abogado del diablo |
+| 5 | **Veredicto de Emanuel** | Las dos IA ya dejaron recomendación. La decisión es tuya |
 
 ---
 
-## 2. 🟡 El sistema del curso no cubre eprods
+## 🟡 2. Tensiones reales que conviene resolver, no esconder
 
-Las cuatro skills del curso están escritas **íntegramente para producto físico**.
-No hay criterio de productos digitales codificado en ningún lado.
+### 2.1 El scorecard diría que lances 7 productos a la vez
 
-`00-marco/02-producto-ganador-eprod.md` lo cubre, pero es **nuevo y mío**: lo construí
-trasladando la lógica del Doc A a lo digital y completando con evidencia web. Hay que
-discutirlo antes de tomarlo como criterio del sistema, sobre todo:
+Hay **7 candidatos en zona EJECUTAR YA (≥88)**. Lanzar 7 en paralelo contradice el
+principio de foco del propio curso: las tiendas que ganan afuera son monoproducto con
+foco 80-100%.
 
-- Los umbrales de CAC/ticket (30% / 50%) son razonables pero **no tienen benchmark
-  argentino atrás**. Nadie publica CAC por nicho en AR.
-- La tasa de reembolso de referencia (10-15%) es estimación de industria, no dato
-  medido.
-- Los pesos de los ejes (demanda 25%, canal 20%, autoridad 20%, escalera 20%,
-  entregabilidad 15%) son un criterio propio, no heredado.
+**No es un error del scorecard, es su límite:** prioriza, no secuencia. El plan de 6
+semanas del vault ya resuelve la secuencia por ecosistema. Vale dejar escrito que **el
+plan manda sobre el scorecard** para decidir qué va primero.
 
-Si tenés data real de alguno de estos tres puntos en la carpeta del curso, cambia el
-scorecard de eprods.
+### 2.2 El test de los ebooks es de breakeven, no de rentabilidad
+
+Corriendo `02-costos/rentabilidad-ar.py` sobre el ebook #1 ($19.900):
+
+- CPA de breakeven: **$17.912**
+- La regla de corte (5 ventas con USD 50) implica un CPA de **$15.600**
+- Con CPA real de $15.000: neto **$2.912** por venta, **ROAS 1,33x**
+
+El ROAS queda muy por debajo del **≥ 2,5** que el vault exige a los físicos. Llegar
+justo a 5 ventas con USD 50 valida el ángulo pero **no prueba que el negocio dé plata**.
+
+Para que el ebook sea negocio hace falta subir el ticket o bajar el CPA. El order bump
+de $9.900 al 20% de take aporta solo $1.782 (10% más de CPA tolerable): diseñarlo para
+30-40%, no para el piso del 20%.
+
+### 2.3 La estacionalidad del ebook #2 se está yendo
+
+"Chau pañal" tiene pico **octubre-febrero** (sacar el pañal con el calor, antes del
+jardín en marzo). Hoy es 31 de octubre: la ventana está abierta pero se consume sola.
+En el plan está en la Semana 3 (16-22 de noviembre). Si se corre, se pierde hasta el
+año que viene.
 
 ---
 
-## 3. 🟡 Huecos de evidencia web
-
-Lo que busqué y no encontré, para que no construyamos sobre humo:
+## 🟡 3. Huecos de evidencia que siguen abiertos
 
 | Hueco | Impacto | Cómo se cierra |
 |---|---|---|
-| Ranking confiable de categorías de infoproducto 2026 | No se puede priorizar nicho de eprod con data de mercado | Mirar el marketplace de Hotmart directo + Ad Library AR/ES |
-| Ranking CACE por **facturación** (solo encontré unidades) | Las unidades sobre-representan alimentos; facturación serviría más para ticket alto | Buscar el informe completo de CACE |
-| CAC por nicho en Argentina | El MUST E5 de eprods queda sin umbral de referencia | Solo se cierra testeando con plata propia |
-| Reembolsos reales por categoría en Hotmart | El 10-15% es estimación | Preguntar en el programa, o data de la plataforma |
-
-Casi todo el contenido de "producto ganador" en la web es de vendors que venden
-herramientas de dropshipping. Los umbrales están marcados con nivel de confianza en
-`00-marco/04-evidencia-web-2026.md` — el 🟥 no se usa para decidir.
+| **CPA real por nicho en Meta AR** | Todos los CPA objetivo ($15.000, $22.000, $32.000) son objetivos, no medidos | Solo se cierra testeando. Es la razón de la regla de los USD 50 |
+| **Take rate real del order bump** | El 20% es el piso que pide el vault, no un dato propio | Primer ebook lanzado |
+| **Tasa de reembolso de ebooks en ARS** | Afecta el flujo real, no el bruto | Primer ebook lanzado |
+| Ranking de CACE por **facturación** (solo hay por unidades) | Las unidades sobre-representan alimentos | Informe completo de CACE |
+| Si el laboratorio a façon acepta MOQ chico | Define si el nicho laboratorio es viable hoy o en 6 meses | Los 5 contactos del pendiente #2 |
 
 ---
 
-## 4. 🟡 Cero candidatos cargados
-
-Consecuencia directa del punto 1. El scorecard está probado y funcionando pero corre en
-vacío: `python3 01-scorecard/calcular_score.py` hoy devuelve "no hay fichas cargadas".
-
-`03-candidatos/long-list-inicial.md` tiene un pre-screening de **direcciones**, no de
-candidatos. Es útil como punto de partida y como muestra de cómo se usa el sistema,
-pero no sirve para decidir: ninguna dirección física llegó a verde porque le falta el
-dolor específico atrás, y las dos verdes son eprods por falta de alternativas visibles,
-no por mérito comparado.
-
----
-
-## 5. 🟢 Lo que sí quedó listo y probado
+## 🟢 4. Lo que quedó listo y probado
 
 | Entregable | Estado |
 |---|---|
-| Criterios de producto ganador físico (destilados del Doc A + Radar) | ✅ |
-| Criterios de producto ganador eprod (nuevo, a discutir) | ✅ |
-| Lecciones del caso real de importación, convertidas en criterio | ✅ |
-| Evidencia web con nivel de confianza declarado y fuentes | ✅ |
-| Scorecard con gates, pesos y umbrales | ✅ |
-| Calculadora de score | ✅ probada |
-| Calculadora de costo puesto en AR | ✅ **validada contra el caso real**: predice USD 3,63-4,20/unidad y el real fue 3,70 |
-| Calculadora de unit economics de eprod | ✅ probada, con conversión por escalón |
-| Plantillas de ficha, Doc A y Doc B | ✅ |
-| Acta de decisión con método acordado de antemano | ✅ |
+| Criterios de producto físico, con filtros de GetHookd, fórmula del hueco y patrón de 5 reglas | ✅ del vault |
+| Criterios de ebook, del Módulo 8 | ✅ del vault |
+| Lecciones del caso real de importación, convertidas en 13 criterios | ✅ |
+| Scorecard de 5 ejes × 20, igual para físicos y ebooks | ✅ del vault |
+| Calculadora de score con gates y ejes bloqueantes | ✅ probada sobre 16 candidatos |
+| **Calculadora de rentabilidad AR** (CPA y ROAS de breakeven, bundles, order bump) | ✅ reproduce la lógica de bundles de M2-12 |
+| Calculadora de costo puesto en AR | ✅ validada contra el caso real (predice USD 3,63-4,20; el real fue 3,70) |
+| 16 fichas de candidatos con evidencia y links | ✅ |
+| Acta de decisión con el método aplicado | ✅ |
+
+---
+
+## 📝 5. Lo que corregí de mis propias versiones
+
+Las primeras versiones de este repo las escribí sin acceso al curso. Tres cosas estaban
+mal, y están documentadas en el archivo donde ocurrieron:
+
+| Qué estaba mal | Consecuencia si no se corregía | Dónde |
+|---|---|---|
+| **Los pesos del scorecard eran míos** (30/25/15/15/15) y el vault ya tenía el suyo (5×20) | Dos scorecards incompatibles: físicos y ebooks no podrían competir en un solo ranking, que es justo lo que hace falta para decidir | `01-scorecard/README.md` |
+| **El criterio de eprods pedía "autoridad propia"** (mi MUST E3) | Es **lo contrario** de M8-03, que pide ofertas **sin marca personal** porque una marca personal no se puede modelar. Con mi criterio los 3 ebooks del ranking fallaban un MUST | `00-marco/02-producto-ganador-eprod.md` |
+| **Traté la lista de exclusiones como gate de producto** | Es gate de **importar**. El jabón de caqui (90/100) y la loción de magnesio (89/100) habrían muerto en el primer filtro, cuando en realidad se fabrican a façon acá y no pasan por ANMAT ni aduana | `02-costos/reglas-y-exclusiones.md` |
+
+También quedó obsoleto `03-candidatos/long-list-inicial.md`: era un pre-screening de
+*direcciones* hecho sin los candidatos reales, y su conclusión ("las dos direcciones
+verdes son eprods") era un artefacto de no tener físicos cargados. Se mantiene solo
+como registro de cómo se veía el problema antes del vault.

@@ -1,0 +1,43 @@
+{
+  "slug": "ebook-chau-panal",
+  "nombre": "Ebook #2: Chau Pañal en 3 Días + Kit Imprimible",
+  "tipo": "digital",
+  "nicho": "Maternidad",
+  "dolor": "Sacar el pañal antes de que empiece el jardín en marzo",
+  "referencia_afuera": "Big Little Feelings: 76 ads, 355 días, USD 34 · Potty Training Consultant: 172 días · Stella Soragi (BR): 15 ads, 55 días, R$27 en Hotmart",
+  "mecanismo_culpable": "",
+  "proveedor": "Producción propia. Kit de Acción de Fin de Semana (3 días) + Tablero de Stickers Imprimible + Guía de Accidentes Nocturnos",
+  "precio": "$17.900 ARS + Order Bump 'Guía de Sueño Infantil / Berrinches' a $8.900",
+  "cpa_breakeven": "CPA <= $15.000. Test: USD 50, criterio >= 5 ventas",
+  "rol": "Digital #2. Lanzar en noviembre por estacionalidad",
+  "scores": {
+    "afuera": {
+      "score": 18,
+      "evidencia": "Big Little Feelings 355 días activa (el más longevo del relevamiento). Stella Soragi valida el formato kit imprimible a precio bajo en Brasil."
+    },
+    "dolor_ar": {
+      "score": 19,
+      "evidencia": "Trends AR: pico estacional fortísimo de octubre a febrero. Las madres quieren sacar el pañal con el calor y antes del jardín en marzo. ESTAMOS EN EL PICO AHORA."
+    },
+    "hueco_meta": {
+      "score": 20,
+      "evidencia": "Los 62 anuncios en Meta AR son solo pañales y bombachitas. La pediatra argentina Dra. Jimena Le Bellot (soymamaypediatra.com) vende una guía de control de esfínteres pero NO pauta en Meta AR."
+    },
+    "operativa": {
+      "score": 20,
+      "evidencia": "Cero ANMAT, cero aduana. Producción propia."
+    },
+    "margen": {
+      "score": 15,
+      "evidencia": "El eje más flojo: ticket $17.900, el más bajo de la cartera. Con CPA $15.000 el margen por venta es mínimo sin el bump."
+    }
+  },
+  "gates_fallados": [],
+  "flags": [
+    "Ventana estacional: entra ahora (noviembre-febrero) o se pierde hasta el año que viene",
+    "Diferenciarse del enfoque médico largo de los pediatras: vender velocidad (3 días), no tratamiento"
+  ],
+  "pendientes": [],
+  "fuente_vault": "Vault ECOMAI/05 Plan de accion/Comparativa integral AR y Planificacion - 31 octubre.md",
+  "fecha_evaluacion": "2026-10-31"
+}

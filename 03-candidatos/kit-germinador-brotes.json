@@ -1,0 +1,42 @@
+{
+  "slug": "kit-germinador-brotes",
+  "nombre": "Kit Germinador de Brotes + 3 Semillas (Sulforafano)",
+  "tipo": "fisico-local",
+  "nicho": "Nutrición funcional",
+  "dolor": "Querer sulforafano/brotes frescos sin pagar suplementos importados carísimos",
+  "referencia_afuera": "The Sprouting Company: 133 ads, 114 días",
+  "mecanismo_culpable": "",
+  "proveedor": "Frasco de vidrio/acrílico con tapa drenante local + semillas agroecológicas (FECOAGRO o fraccionadores con RNPA vigente)",
+  "precio": "Kit frasco + 3 bolsas de semillas (brócoli/alfalfa/mix) + guía a $44.900",
+  "cpa_breakeven": "CPA breakeven ~$20.000",
+  "rol": "Segunda ola",
+  "scores": {
+    "afuera": {
+      "score": 16,
+      "evidencia": "The Sprouting Company 133 ads / 114 días. Su negocio real son las semillas por suscripción, no el frasco (regla 2: consumible oculto)."
+    },
+    "dolor_ar": {
+      "score": 14,
+      "evidencia": "El eje más flojo: nicho chico pero fiel (longevidad, nutrición funcional, mujeres +35). 'Sulforafano' creció por podcasts de médicos integrativos, pero el mercado total es más chico que un dolor físico."
+    },
+    "hueco_meta": {
+      "score": 20,
+      "evidencia": "Cero competencia en Meta AR."
+    },
+    "operativa": {
+      "score": 17,
+      "evidencia": "100% local. Usar fraccionadores con RNPA vigente para no tener que tramitar registro alimentario propio."
+    },
+    "margen": {
+      "score": 16,
+      "evidencia": "En MELI el kit con semillas vende +100 a $54.000. Costo armado estimado $10.000-$12.000. Recompra real vía semillas."
+    }
+  },
+  "gates_fallados": [],
+  "flags": [],
+  "pendientes": [
+    "Asegurar proveedor de semillas con RNPA vigente"
+  ],
+  "fuente_vault": "Vault ECOMAI/05 Plan de accion/Comparativa integral AR y Planificacion - 31 octubre.md",
+  "fecha_evaluacion": "2026-10-31"
+}

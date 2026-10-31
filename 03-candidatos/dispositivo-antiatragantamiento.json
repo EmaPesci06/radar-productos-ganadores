@@ -1,0 +1,45 @@
+{
+  "slug": "dispositivo-antiatragantamiento",
+  "nombre": "Dispositivo Antiatragantamiento",
+  "tipo": "fisico-courier",
+  "nicho": "",
+  "dolor": "Atragantamiento en bebés (BLW) y abuelos con disfagia",
+  "referencia_afuera": "NovaCare: 236 ads · Global Health: 268 ads, 239 días",
+  "mecanismo_culpable": "",
+  "proveedor": "",
+  "precio": "",
+  "cpa_breakeven": "",
+  "rol": "Solo viable con alianza con un importador médico que ya tenga PM aprobado",
+  "scores": {
+    "afuera": {
+      "score": null,
+      "evidencia": ""
+    },
+    "dolor_ar": {
+      "score": null,
+      "evidencia": ""
+    },
+    "hueco_meta": {
+      "score": null,
+      "evidencia": ""
+    },
+    "operativa": {
+      "score": null,
+      "evidencia": ""
+    },
+    "margen": {
+      "score": null,
+      "evidencia": ""
+    }
+  },
+  "gates_fallados": [
+    "Producto Médico Clase II: requiere PM aprobado por ANMAT. Pautar 'salvá una vida' sin número de PM expone a denuncia y bloqueo de cuenta",
+    "Brecha de precio insalvable: clones a $13.495-$25.000 en MELI (+100 vendidos) vs $129.999 de Airflow Argentina"
+  ],
+  "flags": [
+    "El vault puntuó estos 4 como grupo (<60/100) sin desglose por eje. No se inventan scores: quedan sin calificar, el gate manda."
+  ],
+  "pendientes": [],
+  "fuente_vault": "Vault ECOMAI/05 Plan de accion/Comparativa integral AR y Planificacion - 31 octubre.md",
+  "fecha_evaluacion": "2026-10-31"
+}

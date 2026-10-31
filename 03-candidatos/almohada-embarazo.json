@@ -1,0 +1,42 @@
+{
+  "slug": "almohada-embarazo",
+  "nombre": "Almohada de Embarazo (U/C) + Cuña/Brazo Lactancia",
+  "tipo": "fisico-local",
+  "nicho": "Descanso y columna / maternidad",
+  "dolor": "Dolor de cadera al dormir del lado izquierdo durante el embarazo",
+  "referencia_afuera": "Sleepybelly: 257 ads, 149 días · CozyArm: 218 ads, 69 días",
+  "mecanismo_culpable": "",
+  "proveedor": "100% local (MTL, micolecho, Hola Luisina, Jomaro/Tapitel). Costo estimado ~$22.000",
+  "precio": "$79.900 (1u) · $99.900 (Kit Maternidad: almohada U + funda fresca de verano + almohadita de brazo lactancia), 3/6 cuotas",
+  "cpa_breakeven": "CPA breakeven $37.100-$43.400. Objetivo <= $32.000 (ROAS >= 2,5). Test: USD 100",
+  "rol": "Físico #2. Se suma a la Marca 1 sin tocar Aduana ni ANMAT",
+  "scores": {
+    "afuera": {
+      "score": 18,
+      "evidencia": "Sleepybelly 257 ads / 149 días y CozyArm 218 ads / 69 días en GetHookd."
+    },
+    "dolor_ar": {
+      "score": 20,
+      "evidencia": "En MELI AR vende +1.000 unidades entre $54.990 y $95.000. Quejas reales en las reviews: 'le falta relleno' y 'la tela da calor en verano' — las dos son la diferenciación."
+    },
+    "hueco_meta": {
+      "score": 20,
+      "evidencia": "0 marcas DTC con embudo de dolor en Meta AR. Hueco total."
+    },
+    "operativa": {
+      "score": 18,
+      "evidencia": "Fabricación local textil/espuma, mismos proveedores que la Marca 1. Cero aduana, cero ANMAT."
+    },
+    "margen": {
+      "score": 18,
+      "evidencia": "Costo ~$22.000 vs $79.900. Doble uso (embarazo + 12 meses de lactancia) y ángulo de regalo para la pareja en diciembre."
+    }
+  },
+  "gates_fallados": [],
+  "flags": [
+    "Ticket alto: si hay carritos abandonados, destacar cuotas sin interés y el doble uso"
+  ],
+  "pendientes": [],
+  "fuente_vault": "Vault ECOMAI/05 Plan de accion/Comparativa integral AR y Planificacion - 31 octubre.md",
+  "fecha_evaluacion": "2026-10-31"
+}

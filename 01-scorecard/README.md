@@ -1,33 +1,58 @@
 # Scorecard — la matriz de decisión
 
-El scorecard existe para que dos candidatos sean **comparables**. Mismos ejes,
-mismos pesos, misma escala. Sin esto, la decisión la gana el producto que
-investigamos último, no el mejor.
+> **Corrección del 31/10/2026.** La primera versión de este archivo usaba pesos que
+> inventé (30/25/15/15/15 para físicos, otros cinco para eprods). Con el vault ECOMAI
+> cargado quedó claro que **ya existe un scorecard propio**, el que se usó en
+> `05 Plan de accion/Comparativa integral AR y Planificacion - 31 octubre.md` para
+> rankear 13 candidatos. Este archivo ahora replica ese scorecard. Los pesos míos se
+> descartaron: no había candidatos evaluados con ellos, así que no se invalidó nada.
+
+El scorecard existe para que dos candidatos sean **comparables**. Mismos ejes, mismos
+pesos, misma escala — y la misma escala para físicos y para ebooks, que es lo que
+permite que compitan en un solo ranking.
 
 ---
 
-## Cómo funciona
+## Los 5 ejes, 20 puntos cada uno
 
-```
-1. GATES      → ¿sobrevive? Si falla un gate, score = 0 y NO-GO. No se calcula nada más.
-2. EJES        → cada eje se califica 0-5 con evidencia citable
-3. PESO        → cada eje pesa distinto según si es físico o eprod
-4. SCORE       → 0-100, comparable entre candidatos
-5. VEREDICTO   → GO / GO con flags / NO-GO
-```
+| Eje | Puntos | Qué mide | Dónde se verifica |
+|---|---|---|---|
+| **1. Evidencia afuera** | 20 | ¿Hay alguien ganando con esto en otro país? | GetHookd, Meta Ad Library US/ES/BR/AU |
+| **2. Demanda y dolor en AR** | 20 | ¿El mismo dolor existe acá y la gente lo busca? | Google Trends AR (5a/12m), MELI AR, Reddit, TikTok, YouTube, foros |
+| **3. Hueco en Meta AR** | 20 | ¿Está libre la cancha publicitaria local? | Radar AR sobre Meta Ad Library AR |
+| **4. Facilidad operativa** | 20 | ¿Sin traba de ANMAT ni de Aduana? ¿Proveedor real? | Disp. ANMAT, posición arancelaria, peso/volumen, proveedores |
+| **5. Margen y ecosistema** | 20 | ¿Cierra el CPA breakeven? ¿Hay AOV/LTV? | Calculadora de rentabilidad, packs, upsells, recompra |
 
-Escala de cada ítem:
+**Total: 100.**
 
-| Score | Significado |
+Escala por eje:
+
+| Puntos | Significado |
 |---|---|
-| 5 | Evidencia fuerte y directa. Múltiples fuentes coinciden. |
-| 4 | Evidencia clara, con algún hueco menor. |
-| 3 | Evidencia suficiente. **Piso de aprobación de un MUST.** |
-| 2 | Evidencia débil o indirecta. |
-| 1 | Casi nada. Indicios sueltos. |
-| 0 | **Sin evidencia suficiente** (declararlo así, no inventar un 2) |
+| 18-20 | Evidencia fuerte y directa, varias fuentes coinciden |
+| 14-17 | Evidencia clara con algún hueco |
+| 10-13 | Evidencia suficiente pero con una traba identificada |
+| 6-9 | Traba seria o evidencia débil |
+| 0-5 | **Bloqueante o sin evidencia** (declararlo, no inventar un 10) |
 
-> Un MUST en 0-2 es un MUST **fallado**. No se promedia para taparlo.
+> **Regla 1 del Doc A:** sin link, el dato cuenta 0-1. No se rellena con intuición.
+
+---
+
+## Umbrales de veredicto
+
+Calibrados contra el ranking real del 31/10, donde el #1 sacó 95 y el corte de
+descarte quedó bajo 60:
+
+| Score | Veredicto | Qué hacer |
+|---|---|---|
+| **≥ 88** | 🟢 **EJECUTAR YA** | Al plan de acción: proveedor, muestras, lanzamiento |
+| **80-87** | 🟡 **SEGUNDA OLA / CON CAUTELA** | Válido, pero hay una traba que resolver primero |
+| **60-79** | 🟠 **SOLO COMO BUMP O BONO** | No sostiene una tienda propia. Sirve dentro de otra oferta |
+| **< 60** | 🔴 **DESCARTADO / FRENADO** | Con el motivo escrito |
+
+Un eje en 0-5 es **bloqueante**, independientemente del total: el Dispositivo
+Antiatragantamiento tenía dolor y hueco publicitario, y murió por ANMAT Clase II.
 
 ---
 
@@ -35,76 +60,50 @@ Escala de cada ítem:
 
 Si cualquiera de estos se cumple, el candidato muere sin research.
 
-### Gates comunes
+### Gates regulatorios y de aduana
 
-| Gate | Por qué |
-|---|---|
-| Fallan 2+ MUSTs del eje correspondiente | Regla del Doc A |
-| No hay evidencia de que **alguien ya pague** por resolver el dolor | Sin esto todo lo demás es especulación |
-| El problema es una moda de <6 meses sin historial | No sostiene una marca |
-
-### Gates de físico
-
-| Gate | Por qué |
-|---|---|
-| Producto en la **lista de excluidos** y sin proveedor local | Ver `02-costos/reglas-y-exclusiones.md` |
-| Markup alcanzable **< ×3** sobre el costo puesto en AR | La tabla de markup es piso, no objetivo |
-| Semáforo de saturación 🔴 **sin** diferencial de oferta/formato/segmento | Entrar de frente contra alguien que ya optimizó |
-| Falla un MUST de Market Fit **+** un MUST de Ecosistema | Regla del Doc A |
-
-### Gates de eprod
-
-| Gate | Por qué |
-|---|---|
-| Falla E1: **nadie está pagando** por este dolor hoy | MUST ineludible |
-| Falla E2: la promesa es una **categoría**, no un dolor específico | "Aprender marketing" no vende |
-| CAC estimado > 50% del ticket **y** no hay escalera de valor | El negocio no cierra |
-| La respuesta completa está **gratis y bien hecha** en YouTube, y no vendemos velocidad / certeza / acompañamiento | No hay razón para pagar |
-
----
-
-## Pesos — PRODUCTO FÍSICO
-
-| Eje | Peso | Qué mide | MUSTs incluidos |
-|---|---|---|---|
-| **A. Market Fit** | **30%** | ¿El dolor existe, acá, y se paga? | Marcas invirtiendo afuera · Ticket pagado · Dolor existe en AR · Precio lógico local · Evergreen |
-| **B. Unit economics** | **25%** | ¿Cierra el margen con el costo puesto en AR? | Markup vs tabla · Costo real calculado · Peso/volumen |
-| **C. Saturación / espacio** | **15%** | ¿Hay lugar para entrar? | Semáforo del radar · Competidores enfocados · Ángulos libres |
-| **D. Operativa y regulatorio** | **15%** | ¿Se puede operar sin fricción fatal? | Permitido · Post-venta simple · Proveedor · ANMAT |
-| **E. Ecosistema (AOV/LTV)** | **15%** | ¿Marca o hit suelto? | Mecanismo único · Nicho aguanta marca · Recompra · Calidad |
-
-**Por qué estos pesos:** Market Fit y unit economics se llevan el 55% porque son los
-dos ejes que, fallados, no se arreglan con ejecución. Saturación pesa menos que
-Market Fit porque un mercado caliente se puede atacar con ángulo propio — un mercado
-que no existe, no.
-
-## Pesos — EPROD
-
-| Eje | Peso | Qué mide | MUSTs incluidos |
-|---|---|---|---|
-| **A. Demanda pagada** | **25%** | ¿Alguien paga hoy, con precio público? | E1, E2 |
-| **B. Canal y CAC** | **20%** | ¿Se puede adquirir cliente por menos del ticket? | E5 |
-| **C. Autoridad / ventaja injusta** | **20%** | ¿Por qué nosotros y no cualquiera? | E3, E4 |
-| **D. Escalera de valor / LTV** | **20%** | ¿Hay algo arriba del producto de entrada? | E6 |
-| **E. Entregabilidad** | **15%** | ¿Se produce y se sostiene sin comernos la vida? | E7 |
-
-**Por qué cambian los pesos:** en eprod el margen bruto es ~90% y no discrimina entre
-candidatos, así que no es eje. Lo que discrimina es el canal (B) y la autoridad (C):
-son lo más difícil de conseguir y lo más difícil de copiar.
-
----
-
-## Umbrales de veredicto
-
-| Score | Veredicto | Qué hacer |
+| Gate | Por qué | Caso real |
 |---|---|---|
-| **≥ 75** | 🟢 **GO claro** | Avanzar a Doc B |
-| **60-74** | 🟡 **GO con flags** | Avanzar, pero resolver las flags antes de comprar stock / producir |
-| **45-59** | 🟠 **Standby** | No descartar, pero no es el winner. Falta evidencia o falta ángulo. |
-| **< 45** | 🔴 **NO-GO** | Descartar con el motivo escrito. Guardar pivots sugeridos. |
+| **Producto Médico Clase II sin PM aprobado** | Pautar sin número de PM expone a denuncia y bloqueo de cuenta | Dispositivo antiatragantamiento |
+| **Cosmético o suplemento importado sin legajo** | ANMAT frena en Aduana | Esmalte en marcador |
+| **Líquidos, aerosoles o polvos por courier** | Carga peligrosa, DHL restringe | Esmalte en marcador |
+| El envío supera **50 kg** (tope del régimen courier) | No entra, hay que ir a carga aérea con despachante | Kit de descanso: 300 kits = 108 kg |
 
-Un candidato con score alto pero un **MUST fallado** no es GO: es GO con flags, y la
-flag es ese MUST. El score no compra MUSTs.
+> ⚠️ **Estos gates son de IMPORTAR, no del producto.** Un cosmético fabricado a façon
+> en un laboratorio local habilitado **no pasa por ninguno** — es la vertical del nicho
+> laboratorio. Ver `02-costos/reglas-y-exclusiones.md` §"La salida local".
+
+### Gates de mercado
+
+| Gate | Por qué | Caso real |
+|---|---|---|
+| **Ancla de precio en MELI** demasiado baja frente al precio DTC | El cliente compara y se va | Antiatragantamiento: $13.495 en MELI vs $129.999 DTC |
+| **Commodity quemado en MELI** | No hay margen ni diferenciación posible | Toalla refrescante |
+| **CPA breakeven por debajo de ~$10.000** | No se puede comprar tráfico a ese precio en Meta AR | Antifaz suelto: breakeven $7.353 |
+| Unidad suelta de **menos de $40.000** sin pack | Los costos fijos por pedido (envío ~$7.000 + fulfillment ~$1.500 + CPA ~$15.000) se la comen | Regla 2 del patrón ganador |
+| Ya domina un **jugador grande con Full y cuotas** en MELI | Margen DTC muy fino | Manta refrescante: Gadnic |
+
+### Gates del Doc A (se mantienen)
+
+- Fallan 2+ MUSTs del checklist global
+- Fallan 2+ MUSTs de Market Fit
+- Falla un MUST de Market Fit **+** un MUST de Ecosistema
+- El margen no cierra contra el precio de MELI AR
+
+---
+
+## Reglas de corte del test (disciplina de capital)
+
+El scorecard decide qué se testea. **Esto decide qué se escala.**
+
+| Formato | Presupuesto de test | GO (escalar) | STOP (cortar o iterar) |
+|---|---|---|---|
+| **Ebook** ($17.900-$19.900) | USD 50 (~$78.000) | **≥ 5 ventas**, CPA ≤ $15.000, take rate del order bump ≥ 20% | < 3 ventas con USD 50 → cambiar hook. Dos giros sin mejora → siguiente ebook |
+| **Almohada lumbar** ($49.900 / combo $74.900) | USD 100 (~$156.000) | CPA ≤ $22.000 en 1u o ≤ $30.000 en combo (ROAS ≥ 2,5) | CTR del video < 1,2% → rehacer los primeros 3 segundos |
+| **Almohada embarazo** ($79.900 / kit $99.900) | USD 100 | CPA ≤ $32.000 (ROAS ≥ 2,5) | Muchos carritos abandonados → destacar cuotas sin interés |
+| **Jabón de caqui** (pack x3 $34.900) | USD 50-80 | CPA ≤ $14.000 (ROAS ≥ 2,5 + recompra a 60 días) | Nunca vender barra suelta a precio accesible: forzar el pack |
+
+Criterio general del vault: **mínimo 5 ventas por cada USD 50 invertidos.**
 
 ---
 
@@ -114,10 +113,16 @@ flag es ese MUST. El score no compra MUSTs.
 python3 01-scorecard/calcular_score.py
 ```
 
-Lee todos los `03-candidatos/*.json`, aplica gates y pesos, e imprime el ranking.
+Lee todos los `03-candidatos/*.json`, aplica gates y suma los 5 ejes.
 
 ```bash
-python3 01-scorecard/calcular_score.py --detalle nombre-del-candidato
+python3 01-scorecard/calcular_score.py --detalle almohada-lumbar-ciatica
 ```
 
-Muestra el desglose eje por eje de un candidato.
+Desglose eje por eje de un candidato.
+
+```bash
+python3 01-scorecard/calcular_score.py --tipo digital
+```
+
+Filtra por tipo (`fisico-local`, `fisico-courier`, `fisico-lab`, `digital`).

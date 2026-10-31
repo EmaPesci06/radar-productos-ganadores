@@ -1,0 +1,42 @@
+{
+  "slug": "guantes-compresion-artritis",
+  "nombre": "Guantes de Compresión Artritis (Pack x2 / x3 pares)",
+  "tipo": "fisico-courier",
+  "nicho": "Salud / adultos mayores",
+  "dolor": "Dolor y rigidez de manos por artritis",
+  "referencia_afuera": "Kovaria: 236 ads, 316 días · Everyneeding: 252 ads",
+  "mecanismo_culpable": "",
+  "proveedor": "Alibaba por courier. ~$4.800 el par puesto en AR (liviano, no supera los 50 kg)",
+  "precio": "Pack x2 pares $39.900 · Pack x3 pares $49.900. 1 par solo da pérdida",
+  "cpa_breakeven": "A calcular con 02-costos/rentabilidad-ar.py",
+  "rol": "Opción #1 si se quiere hacer una primera importación chica por DHL sin riesgo de peso",
+  "scores": {
+    "afuera": {
+      "score": 18,
+      "evidencia": "Kovaria 236 ads / 316 días (el segundo más longevo de la cartera). Everyneeding 252 ads."
+    },
+    "dolor_ar": {
+      "score": 18,
+      "evidencia": "En MELI valen $16.900 con +1.000 vendidos: demanda probada."
+    },
+    "hueco_meta": {
+      "score": 17,
+      "evidencia": "En Meta AR solo Nova AR, que es tienda catálogo con 19 ads. Poca amenaza directa."
+    },
+    "operativa": {
+      "score": 16,
+      "evidencia": "Courier liviano, no supera los 50 kg. No es cosmético ni médico Clase II. Pero es importación: suma aduana y plazos."
+    },
+    "margen": {
+      "score": 15,
+      "evidencia": "El ancla de MELI a $16.900 obliga a vender packs. 1 par suelto da pérdida contra los costos fijos por pedido."
+    }
+  },
+  "gates_fallados": [],
+  "flags": [
+    "El ancla de precio de MELI ($16.900) obliga a que la oferta frontal sea pack x2 o x3"
+  ],
+  "pendientes": [],
+  "fuente_vault": "Vault ECOMAI/05 Plan de accion/Comparativa integral AR y Planificacion - 31 octubre.md",
+  "fecha_evaluacion": "2026-10-31"
+}
