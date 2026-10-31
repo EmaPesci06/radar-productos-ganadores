@@ -1,0 +1,84 @@
+{
+  "_comentario": "Copiar este archivo como <slug>.json y llenarlo. Los archivos que empiezan con _ se ignoran. Cada score necesita evidencia con link: un score sin evidencia va en 0, no en 2.",
+
+  "slug": "nombre-corto-sin-espacios",
+  "nombre": "Nombre del candidato",
+  "tipo": "fisico",
+  "_tipo_opciones": "fisico | eprod",
+
+  "nicho": "",
+  "mercado": "Argentina",
+  "dolor": "El dolor fisico/funcional especifico, en las palabras del cliente",
+  "mecanismo_unico": "Por que funciona ESTO y por que no funcionan los demas",
+  "ticket_objetivo": "ARS 0 (precio piso de la tabla de markup, o ticket del eprod)",
+
+  "costo_puesto_ar": null,
+  "_costo_nota": "Solo fisicos. Salida de 02-costos/costo-puesto-ar.py, en ARS por unidad",
+  "markup_alcanzable": null,
+
+  "scores": {
+    "market_fit": {
+      "score": null,
+      "es_must": true,
+      "evidencia": "Link + que se vio. Ad Library, MELI, Amazon, Trends, Reddit"
+    },
+    "unit_economics": {
+      "score": null,
+      "es_must": true,
+      "evidencia": "Costo puesto calculado + precio de mercado MELI AR comparado"
+    },
+    "saturacion": {
+      "score": null,
+      "es_must": false,
+      "evidencia": "Semaforo del radar: marcas DTC, dias al aire, foco, angulos tomados"
+    },
+    "operativa": {
+      "score": null,
+      "es_must": true,
+      "evidencia": "Permitido/excluido, derecho de importacion, peso/volumen, proveedor"
+    },
+    "ecosistema": {
+      "score": null,
+      "es_must": true,
+      "evidencia": "Productos del ecosistema, recompra, bundles, calidad en reviews"
+    },
+
+    "_scores_eprod": "Para tipo=eprod usar estas cinco claves en lugar de las de arriba",
+    "demanda_pagada": {
+      "score": null,
+      "es_must": true,
+      "evidencia": "Quien cobra hoy por esto, con precio publico y link"
+    },
+    "canal_cac": {
+      "score": null,
+      "es_must": true,
+      "evidencia": "Canal concreto + CAC estimado vs ticket (02-costos/margen-eprod.py)"
+    },
+    "autoridad": {
+      "score": null,
+      "es_must": true,
+      "evidencia": "Resultado propio, experiencia, audiencia o data que otro no tiene"
+    },
+    "escalera_ltv": {
+      "score": null,
+      "es_must": true,
+      "evidencia": "Entry -> core -> premium concretos, con tickets"
+    },
+    "entregabilidad": {
+      "score": null,
+      "es_must": false,
+      "evidencia": "Costo de produccion y carga de soporte recurrente"
+    }
+  },
+
+  "gates_fallados": [],
+  "_gates_nota": "Si hay algo aca, el score va a 0 y el veredicto a NO-GO. Ver 01-scorecard/README.md",
+
+  "flags": [],
+  "pendientes": [],
+  "pivots": [],
+
+  "doc_a": "ruta al doc-a-<producto>.md si ya existe",
+  "radar": "ruta o fecha de la corrida de radar-adlibrary-ar",
+  "fecha_evaluacion": "YYYY-MM-DD"
+}
