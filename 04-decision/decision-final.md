@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Estado** | 🟡 **DESBLOQUEADA — 16 candidatos cargados, decisión de Emanuel pendiente** |
+| **Estado** | 🟡 **DESBLOQUEADA — 16 candidatos cargados, 3 objeciones del radar pendientes de resolver** |
 | Fecha de apertura | 2026-10-31 |
 | Fecha de desbloqueo | 2026-10-31 (vault ECOMAI cargado) |
 | Decisor | Emanuel |
@@ -104,6 +104,57 @@ hace caja mientras la espuma se cotiza. Su ventaja real no es el producto: es el
 peajes estructurales (aduana, tope de 50 kg, ancla de precio de MELI). La única
 excepción razonable son los guantes de compresión (84), si en algún momento se quiere
 hacer una importación chica de prueba.
+
+---
+
+## ⚠️ Objeciones del radar del 31/10 — leer antes de decidir
+
+Después de escribir la recomendación de arriba corrí el Radar AR directo sobre Meta Ad
+Library (medición independiente, **el mismo día** que la del vault, con otra
+herramienta). Tres de los cuatro candidatos top no dieron lo mismo.
+
+Por el flujo de `06 Analisis compartido/README.md` esto va como **objeción, y decide
+Emanuel**: no cambié ningún score. Detalle completo en
+`05-relevamientos/2026-10-31-radar-ar-top4.md`.
+
+| Candidato | Hueco vault | Lo que medí | Objeción |
+|---|---|---|---|
+| Almohada Lumbar | 19/20 | Rodillo hueso **sin competencia**, confirmado. Pero 5 marcas arrancaron en 10 días en almohada ortopédica | 🟡 menor, 19→17 |
+| Almohada Embarazo | 20/20 "0 marcas DTC" | **Micolecho: 716 días al aire**, copy al público, tienda propia. Y figura como *proveedor* en el plan | 🔴 fuerte, 20→12 |
+| Ebook #1 Somáticos | 19/20 "nadie cobra en ARS" | **Cursa Virtual: 169 días** en tienda `.com.ar`. 3 operadores en `impultienda.ar`. **5 marcas en 15 días.** Isabel Navarro con 14 de 21 ads y ya clonada | 🔴 fuerte, 19→8 |
+| Ebook #2 Chau Pañal | 20/20 | **Confirmado exacto.** 18 marcas, todas físicas. Cero digital | ✅ se sostiene |
+| Ebook #3 Pélvico | 19/20 | **No se pudo medir** (query SIN_LEER). Único de los 7 a ciegas en este eje | 🟡 sin verificar |
+
+### Cómo quedaría el ranking si aceptás las objeciones
+
+```bash
+python3 01-scorecard/calcular_score.py --propuesto
+```
+
+```
+ 1  Almohada Lumbar Hueso           93  (95, -2)   EJECUTAR YA
+ 2  Ebook #2 Chau Pañal             92  (92)       EJECUTAR YA
+ 3  Jabón de Caqui                  90  (90)       EJECUTAR YA
+ 4  Loción de Magnesio              89  (89)       EJECUTAR YA
+ 5  Ebook #3 Control Pélvico        88  (88)       EJECUTAR YA  ← a ciegas
+ 6  Almohada de Embarazo            86  (94, -8)   SEGUNDA OLA
+10  Ebook #1 Somáticos              82  (93, -11)  SEGUNDA OLA
+```
+
+**Lo que cambia:** el winner físico no se mueve — la Almohada Lumbar gana en los dos
+escenarios. **El winner digital sí: pasa del Ebook #1 Somáticos al Ebook #2 Chau
+Pañal.** Es el único cuyo hueco verifiqué de forma independiente y dio exacto, y su
+ventana estacional (octubre-febrero, antes del jardín en marzo) **está abierta ahora**.
+En el plan de 6 semanas está recién en la Semana 3: conviene adelantarlo.
+
+Dos cosas más que salieron del radar y sirven para ejecutar:
+
+- **El formato del Chau Pañal es advertorial, no video de producto.** *UltraDries
+  Argentina* corre 4 advertorials con 16 días en ese mismo dolor: el formato ya está
+  validado acá.
+- **Referencia de formato para el nicho de ciática:** *María Elena Vargas*, una
+  página-persona con 10 advertorials y 166 días al aire apuntando a GroundingWell. Es el
+  patrón de advertorial para +50 del M2-04, corriendo en Argentina.
 
 ---
 

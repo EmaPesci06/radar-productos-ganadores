@@ -21,7 +21,9 @@
     },
     "hueco_meta": {
       "score": 20,
-      "evidencia": "0 marcas DTC con embudo de dolor en Meta AR. Hueco total."
+      "evidencia": "0 marcas DTC con embudo de dolor en Meta AR. Hueco total. | RADAR 31/10: OBJECION FUERTE. El 20/20 se fundaba en '0 marcas DTC con embudo de dolor'. Micolechoargentina corre 2 ads con 716 DIAS AL AIRE (el mas longevo de todo el relevamiento), copy de venta al publico ('Mejora tu sueno con nuestra almohada maternal'), destino a su propia tienda micolecho.com.ar. Y micolecho figura en el plan del vault como PROVEEDOR a contactar. Las dos cosas no pueden ser ciertas: en la subasta de Meta es competencia. No pude abrir su sitio (dominio bloqueado) para confirmar si ademas fabrican a terceros.",
+      "score_propuesto": 12,
+      "propuesto_por": "radar-ar 2026-10-31 (objecion, sin aplicar)"
     },
     "operativa": {
       "score": 18,
@@ -34,9 +36,15 @@
   },
   "gates_fallados": [],
   "flags": [
+    "OBJECION FUERTE del radar 31/10: score de hueco propuesto 20 -> 12 (total 94 -> 86, sale de EJECUTAR YA). NO aplicado: decide Emanuel. Ver 05-relevamientos/2026-10-31-radar-ar-top4.md",
+    "Queda hueco de ANGULO, no de categoria: el copy de Micolecho es generico de sueno, no de dolor de cadera al dormir de costado.",
+    "ANTES DE COTIZARLES: preguntar si tienen linea mayorista/facon y si aceptan que un cliente les compita en Meta con el mismo producto. Peor caso: son fabricante Y marca DTC, nos venden y nos compiten con ventaja de costo.",
     "Ticket alto: si hay carritos abandonados, destacar cuotas sin interés y el doble uso"
   ],
   "pendientes": [],
   "fuente_vault": "Vault ECOMAI/05 Plan de accion/Comparativa integral AR y Planificacion - 31 octubre.md",
-  "fecha_evaluacion": "2026-10-31"
+  "fecha_evaluacion": "2026-10-31",
+  "relevamientos": [
+    "05-relevamientos/2026-10-31-radar-ar-top4.md"
+  ]
 }

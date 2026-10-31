@@ -63,8 +63,12 @@ def cargar_candidatos():
     return fichas
 
 
-def evaluar(ficha):
-    """Devuelve (total, veredicto, gates, bloqueantes, detalle)."""
+def evaluar(ficha, usar_propuesto=False):
+    """Devuelve (total, veredicto, gates, bloqueantes, detalle).
+
+    usar_propuesto=True usa `score_propuesto` donde exista: son objeciones de un
+    relevamiento posterior que todavia no acepto Emanuel. El oficial no se toca.
+    """
     scores = ficha.get("scores", {})
     gates = [g for g in ficha.get("gates_fallados", []) if g]
 
@@ -73,6 +77,8 @@ def evaluar(ficha):
     for clave, etiqueta, tope in EJES:
         item = scores.get(clave, {})
         valor = item.get("score")
+        if usar_propuesto and item.get("score_propuesto") is not None:
+            valor = item["score_propuesto"]
         if valor is None:
             sin_calificar.append(etiqueta)
             detalle.append((etiqueta, tope, None, item.get("evidencia", "")))
@@ -103,30 +109,37 @@ def color_de(veredicto):
     return GRIS
 
 
-def imprimir_ranking(fichas, filtro_tipo=None):
+def imprimir_ranking(fichas, filtro_tipo=None, usar_propuesto=False):
     if filtro_tipo:
         fichas = [f for f in fichas if f.get("tipo") == filtro_tipo]
 
     filas = []
     for ficha in fichas:
-        total, veredicto, gates, bloq, _ = evaluar(ficha)
-        filas.append((total, veredicto, gates, bloq, ficha))
+        total, veredicto, gates, bloq, _ = evaluar(ficha, usar_propuesto)
+        oficial = evaluar(ficha)[0]
+        filas.append((total, veredicto, gates, bloq, ficha, oficial))
     filas.sort(key=lambda r: -r[0])
 
     print()
     print("=" * 96)
-    print("RANKING MAESTRO DE CANDIDATOS" + (f"  [tipo: {filtro_tipo}]" if filtro_tipo else ""))
+    print("RANKING MAESTRO DE CANDIDATOS" + (f"  [tipo: {filtro_tipo}]" if filtro_tipo else "")
+          + ("   >>> CON OBJECIONES DEL RADAR APLICADAS (no oficial) <<<" if usar_propuesto else ""))
     print("=" * 96)
     if not filas:
         print("\n  No hay fichas cargadas en 03-candidatos/.\n")
         return
 
-    print(f"\n{'#':<3} {'Candidato':<40} {'Tipo':<16} {'Score':>6}  Veredicto")
+    cab = f"\n{'#':<3} {'Candidato':<40} {'Tipo':<16} {'Score':>6}"
+    print(cab + (f" {'Oficial':>8}" if usar_propuesto else "") + "  Veredicto")
     print("-" * 96)
-    for i, (total, veredicto, gates, bloq, ficha) in enumerate(filas, 1):
+    for i, (total, veredicto, gates, bloq, ficha, oficial) in enumerate(filas, 1):
         c = color_de(veredicto)
         nombre = ficha.get("nombre", ficha["slug"])[:39]
-        print(f"{i:<3} {nombre:<40} {ficha.get('tipo','?'):<16} {total:>5}   {c}{veredicto}{RESET}")
+        delta = ""
+        if usar_propuesto:
+            d = total - oficial
+            delta = f" {oficial:>8}" + (f" ({d:+d})" if d else "      ")
+        print(f"{i:<3} {nombre:<40} {ficha.get('tipo','?'):<16} {total:>5}{delta}   {c}{veredicto}{RESET}")
         for g in gates:
             print(f"    \033[91m[gate]\033[0m {g}")
         for b in bloq:
@@ -139,7 +152,7 @@ def imprimir_ranking(fichas, filtro_tipo=None):
         print("  Ningun candidato en zona EJECUTAR YA (>=88 sin gates ni ejes bloqueantes).")
     else:
         print(f"  EJECUTAR YA ({len(ejecutar)}):")
-        for total, _, _, _, ficha in ejecutar:
+        for total, _, _, _, ficha, _o in ejecutar:
             print(f"    {total:>3}  {ficha.get('nombre')}")
         if len(ejecutar) > 1:
             margen = ejecutar[0][0] - ejecutar[1][0]
@@ -152,7 +165,7 @@ def imprimir_ranking(fichas, filtro_tipo=None):
 
     # Resumen por tipo: sirve para ver si la cartera esta desbalanceada.
     por_tipo = {}
-    for total, _, gates, bloq, ficha in filas:
+    for total, _, gates, bloq, ficha, _o in filas:
         t = ficha.get("tipo", "?")
         por_tipo.setdefault(t, []).append(total)
     if len(por_tipo) > 1 and not filtro_tipo:
@@ -205,13 +218,15 @@ def main():
     ap = argparse.ArgumentParser(description="Scorecard de productos ganadores (vault ECOMAI)")
     ap.add_argument("--detalle", metavar="SLUG", help="desglose eje por eje")
     ap.add_argument("--tipo", choices=TIPOS, help="filtrar el ranking por tipo")
+    ap.add_argument("--propuesto", action="store_true",
+                    help="aplicar los score_propuesto de los relevamientos (objeciones sin aceptar)")
     args = ap.parse_args()
 
     fichas = cargar_candidatos()
     if args.detalle:
         imprimir_detalle(fichas, args.detalle)
     else:
-        imprimir_ranking(fichas, args.tipo)
+        imprimir_ranking(fichas, args.tipo, args.propuesto)
 
 
 if __name__ == "__main__":

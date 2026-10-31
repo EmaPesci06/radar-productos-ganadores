@@ -21,7 +21,9 @@
     },
     "hueco_meta": {
       "score": 19,
-      "evidencia": "En Meta AR nadie vende el rodillo hueso para dormir. Ver [[Radar AR - Almohada de rodillas y fascitis]]."
+      "evidencia": "En Meta AR nadie vende el rodillo hueso para dormir. Ver [[Radar AR - Almohada de rodillas y fascitis]]. | RADAR 31/10 (independiente, Ad Library AR): CONFIRMADO que ninguna marca vende el rodillo hueso. En 'ciatica' (~350 res, 16 marcas) todas son servicios, grounding o cremas. En 'almohada lumbar' (~15 res) hay 4 probados de almohada ortopedica (Fisicaline 121d, Calm es simple 95d, Nomada 77d, Nuvia comfort 60d) pero ninguno con el rodillo. ATENCION: 5 marcas arrancaron en 10 dias en la categoria vecina (Blanco & Deco 5d, Que Baratooo 10d, Matcor 10d, Ortho bed 2d, Solvex 2d) = ROJO en el eje 'arrancaron en los ultimos 15 dias' del semaforo.",
+      "score_propuesto": 17,
+      "propuesto_por": "radar-ar 2026-10-31 (objecion, sin aplicar)"
     },
     "operativa": {
       "score": 18,
@@ -33,11 +35,17 @@
     }
   },
   "gates_fallados": [],
-  "flags": [],
+  "flags": [
+    "OBJECION MENOR del radar 31/10: el producto sigue libre pero la categoria se activa. Score propuesto 19 -> 17 (total 95 -> 93). NO aplicado: decide Emanuel. Ver 05-relevamientos/2026-10-31-radar-ar-top4.md",
+    "Referencia de formato a estudiar: Maria Elena Vargas, pagina-persona con 10 advertorials y 166 dias al aire apuntando a GroundingWell. Es el patron de advertorial +50 del M2-04."
+  ],
   "pendientes": [
     "Recibir las cotizaciones de los 9 fabricantes contactados el 30/10",
     "Confirmar que entreguen la forma de hueso tallada real, no el cilindro liso"
   ],
   "fuente_vault": "Vault ECOMAI/06 Analisis compartido/Producto - Almohada lumbar ciatica.md + Vault ECOMAI/05 Plan de accion/Comparativa integral AR y Planificacion - 31 octubre.md",
-  "fecha_evaluacion": "2026-10-31"
+  "fecha_evaluacion": "2026-10-31",
+  "relevamientos": [
+    "05-relevamientos/2026-10-31-radar-ar-top4.md"
+  ]
 }

@@ -21,7 +21,7 @@
     },
     "hueco_meta": {
       "score": 19,
-      "evidencia": "En Meta AR solo hay 3 anuncios de un coach. Hueco casi total en un dolor con 374 ads afuera."
+      "evidencia": "En Meta AR solo hay 3 anuncios de un coach. Hueco casi total en un dolor con 374 ads afuera. | RADAR 31/10: NO SE PUDO MEDIR. La query 'control de esfinteres' no renderizo en 2 intentos y quedo marcada SIN_LEER. El 19/20 sigue siendo el del vault, SIN verificacion independiente. No tratarlo como confirmado."
     },
     "operativa": {
       "score": 20,
@@ -34,10 +34,14 @@
   },
   "gates_fallados": [],
   "flags": [
+    "HUECO SIN VERIFICAR: la query no renderizo en el radar del 31/10. Es el unico de los 7 EJECUTAR YA que esta a ciegas en el eje de hueco. Correr de nuevo antes de testear. Ver 05-relevamientos/2026-10-31-radar-ar-top4.md",
     "Margen 13/20: definir order bump y escalera antes de testear",
     "Ética: ángulo como experiencia, nunca como tratamiento médico"
   ],
   "pendientes": [],
   "fuente_vault": "Vault ECOMAI/05 Plan de accion/Comparativa integral AR y Planificacion - 31 octubre.md",
-  "fecha_evaluacion": "2026-10-31"
+  "fecha_evaluacion": "2026-10-31",
+  "relevamientos": [
+    "05-relevamientos/2026-10-31-radar-ar-top4.md"
+  ]
 }

@@ -21,7 +21,7 @@
     },
     "hueco_meta": {
       "score": 20,
-      "evidencia": "Los 62 anuncios en Meta AR son solo pañales y bombachitas. La pediatra argentina Dra. Jimena Le Bellot (soymamaypediatra.com) vende una guía de control de esfínteres pero NO pauta en Meta AR."
+      "evidencia": "Los 62 anuncios en Meta AR son solo pañales y bombachitas. La pediatra argentina Dra. Jimena Le Bellot (soymamaypediatra.com) vende una guía de control de esfínteres pero NO pauta en Meta AR. | RADAR 31/10: CONFIRMADO EXACTO, el unico de los cuatro que se sostiene. 'dejar el pañal': ~75 resultados, 29 anuncios, 18 marcas, TODAS producto fisico (panales de entrenamiento, bombachas absorbentes, pelelas, asientos de inodoro). CERO competidores digitales. Confirma textualmente al vault. Dato de formato: UltraDries Argentina corre 4 ADVERTORIALS con 16 dias sobre panales de entrenamiento, asi que el formato advertorial ya esta validado en este dolor y en este pais."
     },
     "operativa": {
       "score": 20,
@@ -34,10 +34,17 @@
   },
   "gates_fallados": [],
   "flags": [
+    "CONFIRMADO por el radar 31/10: es el unico candidato cuyo hueco verifique de forma independiente y dio exacto. Con las objeciones aplicadas pasaria a ser el DIGITAL #1 (92). Ver 05-relevamientos/2026-10-31-radar-ar-top4.md",
+    "VENTANA ESTACIONAL ABIERTA AHORA: pico octubre-febrero. En el plan de 6 semanas esta recien en la Semana 3 (16-22 nov). Conviene adelantarlo.",
+    "Usar formato ADVERTORIAL, no video de producto: es el que UltraDries ya valido en este dolor.",
+    "Margen sigue siendo el eje mas flojo (15/20): ticket $17.900, el mas bajo de la cartera.",
     "Ventana estacional: entra ahora (noviembre-febrero) o se pierde hasta el año que viene",
     "Diferenciarse del enfoque médico largo de los pediatras: vender velocidad (3 días), no tratamiento"
   ],
   "pendientes": [],
   "fuente_vault": "Vault ECOMAI/05 Plan de accion/Comparativa integral AR y Planificacion - 31 octubre.md",
-  "fecha_evaluacion": "2026-10-31"
+  "fecha_evaluacion": "2026-10-31",
+  "relevamientos": [
+    "05-relevamientos/2026-10-31-radar-ar-top4.md"
+  ]
 }

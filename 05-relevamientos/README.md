@@ -5,11 +5,28 @@ no lo reemplaza: el vault sigue siendo la fuente de verdad.
 
 | Archivo | Qué trae |
 |---|---|
+| `2026-10-31-radar-ar-top4.md` | **Verificación independiente del hueco de los 4 candidatos top** en Meta Ad Library AR. Tres objeciones, una confirmación. Cambia qué se lanza primero |
 | `2026-10-31-laboratorios-facon-y-anmat.md` | Short list de 5 laboratorios cosméticos a façon en AR con MOQ **desde 100 unidades**, y la Disp. ANMAT 7939/2025 confirmada en Boletín Oficial. Destraba el pendiente #2 de `GAPS.md` |
 
 ## Scripts
 
-### `scripts/radar-ar.js` — Radar AR desde el contenedor
+### `scripts/radar-extract.js` — descubrir marcas por dolor (el principal)
+
+```bash
+node 05-relevamientos/scripts/radar-extract.js --query "ciatica" --n 30
+node 05-relevamientos/scripts/radar-extract.js --queries "nervio vago,dejar el pañal" --json out.json
+```
+
+Extrae por tarjeta: anunciante, fecha, formato, destino real y copy. Agrega por marca,
+cuenta advertorials, resume los **PROBADOS** (60+ días) y agrupa los copys repetidos.
+
+**Guardia anti falso negativo:** si una query devuelve 0 anuncios **y** sin total
+declarado, no lo reporta como hueco — reintenta y, si sigue, la marca `SIN_LEER`. Pasó
+de verdad: corriendo 6 queries seguidas con un contexto compartido, las últimas 3 daban
+0 anuncios con la página cargando bien. Un 0 se lee como "no hay competencia" y es
+justo la conclusión que haría lanzar contra competencia que no se midió.
+
+### `scripts/radar-ar.js` — relevar una biblioteca por page_id
 
 Implementa la lógica de extracción de la skill `radar-adlibrary-ar` con el Chromium +
 Playwright que ya vienen en el contenedor, sin depender de Claude in Chrome ni de la
@@ -34,6 +51,15 @@ cuerpo completo, y mide foco vs dispersión sobre 20-30 anuncios.
   (`l.facebook.com/l.php?u=`) y se decodifica.
 - Verifica el orden por impresiones, no lo asume.
 
-> ⚠️ **Hoy no corre:** `www.facebook.com` está bloqueado por la política de red de este
-> entorno (el gateway responde 403 a CONNECT). El script detecta el caso y dice cómo
-> destrabarlo. Ver `2026-10-31-laboratorios-facon-y-anmat.md` §4.
+## Estado de la red (31/10/2026)
+
+| Host | Estado |
+|---|---|
+| `www.facebook.com` + `static.xx.fbcdn.net` + `*.fbcdn.net` | 🟢 **habilitados** — el radar corre |
+| `listado.mercadolibre.com.ar` | 🔴 MELI muestra pantalla de login a IPs de datacenter. **No se arregla con permisos** |
+| `trends.google.com` | 🔴 429, rate-limit a la IP del contenedor. **No se arregla con permisos** |
+| GetHookd | 🔴 login pago + extensión. Solo desde una sesión local |
+
+La demanda en MELI y la tendencia en Trends hay que mirarlas a mano o desde una sesión
+local. La propia skill ya avisa que Trends es frágil y que si no renderiza en dos
+intentos hay que saltearlo y decirlo.

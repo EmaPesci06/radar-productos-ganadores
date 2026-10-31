@@ -145,14 +145,19 @@ function resumir(q, r) {
   }
 
   // Copys duplicados: mismo texto, creativo distinto = testean angulos visuales
-  const dup = [];
-  for (let i = 0; i < r.ads.length; i++) {
-    for (let j = i + 1; j < r.ads.length; j++) {
-      if (r.ads[i].cuerpoHash && r.ads[i].cuerpoHash === r.ads[j].cuerpoHash) {
-        dup.push(`${r.ads[i].id}=${r.ads[j].id}`);
-      }
-    }
+  // sobre un texto ganador. Se agrupan: listar todos los pares da N*(N-1)/2
+  // lineas ilegibles (con 14 ads iguales son 91 pares).
+  const grupos = {};
+  for (const a of r.ads) {
+    if (!a.cuerpoHash) continue;
+    (grupos[a.cuerpoHash] = grupos[a.cuerpoHash] || []).push(a);
   }
+  const dup = Object.values(grupos).filter((g) => g.length > 1).map((g) => ({
+    n: g.length,
+    marca: g[0].anunciante || '?',
+    ids: g.map((a) => a.id),
+    titular: g[0].titular.slice(0, 70),
+  })).sort((a, b) => b.n - a.n);
   return { query: q, total: r.total, nAds: r.ads.length, ads: r.ads, duplicados: dup,
     marcas: Object.fromEntries(Object.entries(porMarca).map(([k, v]) =>
       [k, { ...v, destinos: [...v.destinos] }])) };
@@ -178,7 +183,13 @@ function imprimir(s) {
       console.log(`  ${String(a.dias).padStart(4)}d | ${a.formato.padEnd(6)} | ${(a.anunciante || '?').slice(0, 26).padEnd(26)} | ${a.titular.slice(0, 60)}`);
     }
   }
-  if (s.duplicados.length) console.log(`\nCopys duplicados (mismo texto, creativo distinto): ${s.duplicados.join(' . ')}`);
+  if (s.duplicados.length) {
+    console.log('\n--- Copys repetidos (mismo texto, creativo distinto = testean angulos visuales) ---');
+    for (const g of s.duplicados) {
+      console.log(`  ${g.n} ads | ${g.marca.slice(0, 26).padEnd(26)} | ${g.titular}`);
+      if (g.n >= 5) console.log(`      ^ ${g.n} creativos sobre un texto ganador: es su angulo probado.`);
+    }
+  }
 }
 
 (async () => {

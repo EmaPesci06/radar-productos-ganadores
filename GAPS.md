@@ -23,7 +23,10 @@ De ahí salieron los 16 candidatos, el scorecard real y todos los criterios corr
 | 2 | **Llamar a los 5 laboratorios a façon** | El eje de operativa del jabón de caqui (hoy 15/20) y de la loción de magnesio (16/20). ✅ **La short list ya está hecha** (31/10): `05-relevamientos/2026-10-31-laboratorios-facon-y-anmat.md`. Hay labs AR que fabrican **desde 100 unidades**, no desde 2.000. Falta el llamado |
 | 3 | **Doc A formal** de los 10 candidatos que no lo tienen | Hoy solo almohada lumbar y antifaz tienen archivo formal en `06 Analisis compartido/` |
 | 4 | **La sección de OpenAI** de los dos productos con archivo | En el flujo de 3 IA del vault, ChatGPT todavía no aportó proveedores, reseñas del producto de referencia ni abogado del diablo |
-| 5 | **Veredicto de Emanuel** | Las dos IA ya dejaron recomendación. La decisión es tuya |
+| 5 | **Resolver las 3 objeciones del radar del 31/10** | El ranking. Ver `05-relevamientos/2026-10-31-radar-ar-top4.md` y `calcular_score.py --propuesto`. Cambian el winner digital |
+| 6 | **Re-correr la query "control de esfinteres"** | El Ebook #3 (88/100) es el único de los 7 EJECUTAR YA con el eje de hueco **sin verificar** |
+| 7 | **Confirmar si Micolecho vende mayorista** | Si es fabricante Y marca DTC con 716 días al aire, nos vende el producto y nos compite con ventaja de costo |
+| 8 | **Veredicto de Emanuel** | Las dos IA ya dejaron recomendación. La decisión es tuya |
 
 ---
 
@@ -70,38 +73,32 @@ de pedirme un relevamiento.
 
 | Herramienta | Estado | Qué se pierde |
 |---|---|---|
-| **Meta Ad Library** (`www.facebook.com`) | 🔴 El gateway responde **403 a CONNECT** | **El Radar AR entero**: quién pauta, días al aire, foco vs dispersión, ángulos tomados |
-| **Mercado Libre AR** (`listado.mercadolibre.com.ar`) | 🔴 El host no resuelve | Demanda real: publicaciones, vendidos, ancla de precio |
-| **Google Trends AR** (`trends.google.com`) | 🔴 El host no resuelve | Tendencia 5a/12m y estacionalidad |
+| **Meta Ad Library** (`www.facebook.com`) | 🟢 **HABILITADA el 31/10** junto con `static.xx.fbcdn.net` y `*.fbcdn.net`. El radar corre | — |
+| **Mercado Libre AR** | 🔴 Habilitado, pero MELI muestra **pantalla de login** a IPs de datacenter. **No se arregla con permisos** | Demanda real: publicaciones, vendidos, ancla de precio |
+| **Google Trends AR** | 🔴 Habilitado, pero devuelve **429** (rate-limit a la IP del contenedor). **No se arregla con permisos** | Tendencia 5a/12m y estacionalidad |
 | **GetHookd** | 🔴 Login pago + extensión en tu Chrome | La búsqueda de tiendas ganadoras afuera |
 | **WebSearch** | 🟢 Funciona | — |
 
 Probé también levantar la Ad Library con el Chromium y Playwright del contenedor: el
 proxy la rechaza igual.
 
-**Consecuencia:** desde esta sesión **no puedo buscar candidatos nuevos con el método
-del curso**, porque el método es "buscar por el dolor en Ad Library → cruzar con demanda
-en MELI → medir el hueco en Meta AR" y los tres pasos necesitan hosts bloqueados. Sí
-puedo verificar supuestos regulatorios y encontrar proveedores con WebSearch, que es lo
-que hice el 31/10.
+**Consecuencia (actualizada):** el paso del Ad Library **ya funciona** — el 31/10 corrí
+el radar sobre 8 queries y salieron tres objeciones que cambian el ranking. Lo que falta
+es el cruce con **demanda en MELI**, que hay que hacer a mano o desde una sesión local,
+porque MELI bloquea las IPs de datacenter y eso no se arregla con una lista de dominios.
 
-### Cómo se destraba
-
-Menú del entorno en la barra de título de la sesión → **Edit** → **Network access**: o
-se sube el nivel de acceso, o se agregan estos dominios bajo **Allowed domains** dejando
-tildada la casilla de package managers:
+### Lo que ya está habilitado
 
 ```
 www.facebook.com
-listado.mercadolibre.com.ar
-www.mercadolibre.com.ar
-trends.google.com
+static.xx.fbcdn.net      ← el JS que dibuja la pagina, sin esto sale en blanco
+*.fbcdn.net              ← imagenes y videos de los creativos
 ```
 
-Pasos: https://code.claude.com/docs/en/cloud-environments#network-access
+Si en algún momento hace falta leer la tienda de un competidor, hay que agregar ese
+dominio también (ej. `micolecho.com.ar`, que quedó sin verificar por eso).
 
-Ya está escrito y probado el script que corre el Radar AR en cuanto se habilite:
-`05-relevamientos/scripts/radar-ar.js`. GetHookd no, porque necesita tu login.
+Pasos: https://code.claude.com/docs/en/cloud-environments#network-access
 
 ---
 

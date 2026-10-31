@@ -21,7 +21,9 @@
     },
     "hueco_meta": {
       "score": 19,
-      "evidencia": "Hueco de COBRO, no de producto: ningún operador local cobra en pesos con Mercado Pago. Isabel Navarro cobra en moneda extranjera con español neutro; Patricia Vega MD en USD. Entrar en ARS con voseo es el diferencial."
+      "evidencia": "Hueco de COBRO, no de producto: ningún operador local cobra en pesos con Mercado Pago. Isabel Navarro cobra en moneda extranjera con español neutro; Patricia Vega MD en USD. Entrar en ARS con voseo es el diferencial. | RADAR 31/10: OBJECION FUERTE, la premisa del puntaje se falso. El 19/20 se fundaba en que 'ningun operador local cobra en pesos con Mercado Pago'. Hoy: Cursa Virtual con 169 DIAS al aire y destino a tienda .com.ar; TRES operadores en impultienda.ar (el constructor del M8-11, checkout en pesos), uno con el subdominio literal 'nervio-vago'; y Patricia Vega MD, que el vault tenia como 'cobra en USD', hoy apunta a nervio-vago.impultienda.ar. Ademas 5 marcas arrancaron en 15 dias (Camila con C 11d, Auralis 10d, Patricia Vega 10d, Liviana 8d, Dra. Sanabria 6d) = el doble del umbral ROJO. Y en 'ejercicios somaticos' Isabel Navarro tiene 14 de los 21 ads visibles (foco ~67%) con el MISMO copy en los 14 (testea angulos visuales sobre texto ganador), mientras Ana Rosa con 1 DIA al aire ya clona su dominio (herramientasomaticas.site vs herramientas-somaticas.netlify.app).",
+      "score_propuesto": 8,
+      "propuesto_por": "radar-ar 2026-10-31 (objecion, sin aplicar)"
     },
     "operativa": {
       "score": 20,
@@ -34,11 +36,17 @@
   },
   "gates_fallados": [],
   "flags": [
+    "OBJECION FUERTE del radar 31/10: score de hueco propuesto 19 -> 8 (total 93 -> 82, sale de EJECUTAR YA y deja de ser el winner digital). NO aplicado: decide Emanuel. Ver 05-relevamientos/2026-10-31-radar-ar-top4.md",
+    "M8-03 es explicito: copiar una oferta escalada beneficia al original, que tiene mas anuncios, mas tiempo y mas presupuesto. Entrar hoy es entrar detras de Isabel Navarro Y detras de 5 que arrancaron esta semana.",
+    "Margen ya era el eje mas flojo (17/20) con ROAS 1,33x. Hueco bajo + margen fino es mala combinacion.",
     "Margen el eje más flojo: el ticket de $19.900 con CPA $15.000 exige que el order bump funcione"
   ],
   "pendientes": [
     "Desglosar la estructura exacta de la landing de Isabel Navarro (herramientas-somaticas.netlify.app)"
   ],
   "fuente_vault": "Vault ECOMAI/05 Plan de accion/Comparativa integral AR y Planificacion - 31 octubre.md",
-  "fecha_evaluacion": "2026-10-31"
+  "fecha_evaluacion": "2026-10-31",
+  "relevamientos": [
+    "05-relevamientos/2026-10-31-radar-ar-top4.md"
+  ]
 }
