@@ -34,6 +34,7 @@ floja entra con score bajo.
 | `02-costos/` | **`rentabilidad-ar.py`** (CPA y ROAS de breakeven, el número que manda), costo puesto en AR, y reglas de importación |
 | `03-candidatos/` | Una ficha por candidato + long-list inicial |
 | `04-decision/decision-final.md` | El acta de decisión. Hoy: **desbloqueada, 16 candidatos cargados** |
+| `05-relevamientos/` | Investigación hecha desde el repo, fechada. Incluye `scripts/radar-ar.js`, el Radar AR en Playwright |
 | `Vault ECOMAI/` | El vault de Obsidian con la transcripción completa del curso (11 módulos, 334 archivos). **Es la fuente de verdad** de todos los criterios |
 | `templates/` | Doc A y Doc B en blanco, listos para llenar |
 

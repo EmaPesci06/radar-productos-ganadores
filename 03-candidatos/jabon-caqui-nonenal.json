@@ -25,7 +25,7 @@
     },
     "operativa": {
       "score": 15,
-      "evidencia": "El eje más flojo: importarlo es NO-GO (ANMAT frena cosméticos sin legajo). La salida es fabricar a façon bajo el legajo del laboratorio local. Suma un trámite y un intermediario."
+      "evidencia": "El eje más flojo: importarlo es NO-GO (ANMAT frena cosméticos sin legajo). La salida es fabricar a façon bajo el legajo del laboratorio local. Suma un trámite y un intermediario. | 31/10: relevamiento de laboratorios (ver 05-relevamientos/). Hay labs AR que fabrican DESDE 100 UNIDADES (Eneve, Carmenta/Biosinergia), no desde 2.000 como sugerían Basel/LACA. Disp. ANMAT 7939/2025 confirmada en Boletin Oficial: habilitacion por declaracion jurada digital. SCORE SIN CAMBIAR a proposito: los MOQ son declaraciones comerciales de los propios labs, no confirmadas. Si se confirman por telefono, este eje sube."
     },
     "margen": {
       "score": 19,
@@ -37,9 +37,15 @@
     "Ventana competitiva: salir antes de que Naturalmente escale o descubra el ángulo +45"
   ],
   "pendientes": [
-    "Contactar 5 laboratorios cosméticos terceristas en AMBA con legajo ANMAT vigente",
+    "LLAMAR a los 5 labs, en este orden de MOQ: 1) Eneve Cosmetica (desde 100 u.) 2) Carmenta/Biosinergia (100-5.000) 3) Pasmanter (lotes piloto + doc ANMAT) 4) Oxapharma 5) Senda Aromatica. Preguntas y objetivo de costo en 05-relevamientos/2026-10-31-laboratorios-facon-y-anmat.md",
+    "Confirmar si fabrican bajo SU legajo o hace falta legajo propio",
+    "Confirmar que esten empadronados bajo Disp. 7939/2025 (plazo de 180 dias habiles)",
+    "Verificar en el texto completo de la disposicion si la categoria 'Grado 1' que usa el vault es correcta: no pude confirmarla, los resultados solo hablan de excluir domisanitarios grado 2b",
     "Pasar el candidato a archivo formal 'Producto - Jabon de caqui nonenal.md' en 06 Analisis compartido"
   ],
   "fuente_vault": "Vault ECOMAI/05 Plan de accion/Comparativa integral AR y Planificacion - 31 octubre.md",
-  "fecha_evaluacion": "2026-10-31"
+  "fecha_evaluacion": "2026-10-31",
+  "relevamientos": [
+    "05-relevamientos/2026-10-31-laboratorios-facon-y-anmat.md"
+  ]
 }

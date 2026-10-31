@@ -20,7 +20,7 @@ De ahí salieron los 16 candidatos, el scorecard real y todos los criterios corr
 | # | Pendiente | Bloquea |
 |---|---|---|
 | 1 | **Cotizaciones de los 9 fabricantes de espuma** contactados el 30/10 | El eje de margen de la almohada lumbar y la de embarazo. Sin costo real, el CPA breakeven es estimado |
-| 2 | **Cotización de 5 laboratorios cosméticos a façon** en AMBA | El eje de operativa del jabón de caqui (hoy 15/20) y de la loción de magnesio (16/20) |
+| 2 | **Llamar a los 5 laboratorios a façon** | El eje de operativa del jabón de caqui (hoy 15/20) y de la loción de magnesio (16/20). ✅ **La short list ya está hecha** (31/10): `05-relevamientos/2026-10-31-laboratorios-facon-y-anmat.md`. Hay labs AR que fabrican **desde 100 unidades**, no desde 2.000. Falta el llamado |
 | 3 | **Doc A formal** de los 10 candidatos que no lo tienen | Hoy solo almohada lumbar y antifaz tienen archivo formal en `06 Analisis compartido/` |
 | 4 | **La sección de OpenAI** de los dos productos con archivo | En el flujo de 3 IA del vault, ChatGPT todavía no aportó proveedores, reseñas del producto de referencia ni abogado del diablo |
 | 5 | **Veredicto de Emanuel** | Las dos IA ya dejaron recomendación. La decisión es tuya |
@@ -63,7 +63,49 @@ año que viene.
 
 ---
 
-## 🟡 3. Huecos de evidencia que siguen abiertos
+## 🔴 3. Las herramientas del curso están bloqueadas en este entorno
+
+Esto limita qué puedo investigar desde una sesión en la nube, y conviene saberlo antes
+de pedirme un relevamiento.
+
+| Herramienta | Estado | Qué se pierde |
+|---|---|---|
+| **Meta Ad Library** (`www.facebook.com`) | 🔴 El gateway responde **403 a CONNECT** | **El Radar AR entero**: quién pauta, días al aire, foco vs dispersión, ángulos tomados |
+| **Mercado Libre AR** (`listado.mercadolibre.com.ar`) | 🔴 El host no resuelve | Demanda real: publicaciones, vendidos, ancla de precio |
+| **Google Trends AR** (`trends.google.com`) | 🔴 El host no resuelve | Tendencia 5a/12m y estacionalidad |
+| **GetHookd** | 🔴 Login pago + extensión en tu Chrome | La búsqueda de tiendas ganadoras afuera |
+| **WebSearch** | 🟢 Funciona | — |
+
+Probé también levantar la Ad Library con el Chromium y Playwright del contenedor: el
+proxy la rechaza igual.
+
+**Consecuencia:** desde esta sesión **no puedo buscar candidatos nuevos con el método
+del curso**, porque el método es "buscar por el dolor en Ad Library → cruzar con demanda
+en MELI → medir el hueco en Meta AR" y los tres pasos necesitan hosts bloqueados. Sí
+puedo verificar supuestos regulatorios y encontrar proveedores con WebSearch, que es lo
+que hice el 31/10.
+
+### Cómo se destraba
+
+Menú del entorno en la barra de título de la sesión → **Edit** → **Network access**: o
+se sube el nivel de acceso, o se agregan estos dominios bajo **Allowed domains** dejando
+tildada la casilla de package managers:
+
+```
+www.facebook.com
+listado.mercadolibre.com.ar
+www.mercadolibre.com.ar
+trends.google.com
+```
+
+Pasos: https://code.claude.com/docs/en/cloud-environments#network-access
+
+Ya está escrito y probado el script que corre el Radar AR en cuanto se habilite:
+`05-relevamientos/scripts/radar-ar.js`. GetHookd no, porque necesita tu login.
+
+---
+
+## 🟡 4. Huecos de evidencia que siguen abiertos
 
 | Hueco | Impacto | Cómo se cierra |
 |---|---|---|
@@ -71,11 +113,12 @@ año que viene.
 | **Take rate real del order bump** | El 20% es el piso que pide el vault, no un dato propio | Primer ebook lanzado |
 | **Tasa de reembolso de ebooks en ARS** | Afecta el flujo real, no el bruto | Primer ebook lanzado |
 | Ranking de CACE por **facturación** (solo hay por unidades) | Las unidades sobre-representan alimentos | Informe completo de CACE |
-| Si el laboratorio a façon acepta MOQ chico | Define si el nicho laboratorio es viable hoy o en 6 meses | Los 5 contactos del pendiente #2 |
+| Si el laboratorio a façon acepta MOQ chico | Define si el nicho laboratorio es viable hoy o en 6 meses | 🟡 **Parcialmente cerrado:** Eneve declara desde 100 u. y Carmenta/Biosinergia 100-5.000, pero son declaraciones comerciales sin confirmar. Los 5 llamados del pendiente #2 |
+| Si la categoría "Grado 1" de la Disp. 7939/2025 es la correcta | Etiqueta del trámite en todo el plan del Ecosistema 2 | No pude confirmarla: los resultados solo hablan de excluir domisanitarios grado 2b. Leer el texto completo de la disposición |
 
 ---
 
-## 🟢 4. Lo que quedó listo y probado
+## 🟢 5. Lo que quedó listo y probado
 
 | Entregable | Estado |
 |---|---|
@@ -88,10 +131,12 @@ año que viene.
 | Calculadora de costo puesto en AR | ✅ validada contra el caso real (predice USD 3,63-4,20; el real fue 3,70) |
 | 16 fichas de candidatos con evidencia y links | ✅ |
 | Acta de decisión con el método aplicado | ✅ |
+| **Radar AR en Playwright**, con las reglas duras de la skill (nunca clickea el CTA del competidor) | ✅ escrito y probado. Espera que se habilite `www.facebook.com` |
+| Short list de 5 laboratorios a façon con MOQ desde 100 u. + Disp. 7939/2025 en fuente primaria | ✅ 31/10 |
 
 ---
 
-## 📝 5. Lo que corregí de mis propias versiones
+## 📝 6. Lo que corregí de mis propias versiones
 
 Las primeras versiones de este repo las escribí sin acceso al curso. Tres cosas estaban
 mal, y están documentadas en el archivo donde ocurrieron:

@@ -25,7 +25,7 @@
     },
     "operativa": {
       "score": 16,
-      "evidencia": "Mismo laboratorio y mismo trámite que el jabón de caqui: se cotizan juntos y el costo fijo del legajo se reparte."
+      "evidencia": "Mismo laboratorio y mismo trámite que el jabón de caqui: se cotizan juntos y el costo fijo del legajo se reparte. | 31/10: ver 05-relevamientos/2026-10-31-laboratorios-facon-y-anmat.md. Mismos 5 labs que el jabon de caqui: se cotizan juntos y el costo fijo del legajo se reparte. MOQ desde 100 u. sin confirmar."
     },
     "margen": {
       "score": 19,
@@ -35,8 +35,14 @@
   "gates_fallados": [],
   "flags": [],
   "pendientes": [
-    "Cotizar junto al jabón de caqui en el mismo laboratorio"
+    "LLAMAR a los 5 labs, en este orden de MOQ: 1) Eneve Cosmetica (desde 100 u.) 2) Carmenta/Biosinergia (100-5.000) 3) Pasmanter (lotes piloto + doc ANMAT) 4) Oxapharma 5) Senda Aromatica. Preguntas y objetivo de costo en 05-relevamientos/2026-10-31-laboratorios-facon-y-anmat.md",
+    "Confirmar si fabrican bajo SU legajo o hace falta legajo propio",
+    "Confirmar que esten empadronados bajo Disp. 7939/2025 (plazo de 180 dias habiles)",
+    "Verificar en el texto completo de la disposicion si la categoria 'Grado 1' que usa el vault es correcta: no pude confirmarla, los resultados solo hablan de excluir domisanitarios grado 2b"
   ],
   "fuente_vault": "Vault ECOMAI/05 Plan de accion/Comparativa integral AR y Planificacion - 31 octubre.md",
-  "fecha_evaluacion": "2026-10-31"
+  "fecha_evaluacion": "2026-10-31",
+  "relevamientos": [
+    "05-relevamientos/2026-10-31-laboratorios-facon-y-anmat.md"
+  ]
 }
