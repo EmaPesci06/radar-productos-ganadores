@@ -42,7 +42,7 @@ const lectura = (d) => d === null ? '?' : d >= 60 ? 'PROBADO' : d >= 15 ? 'EN ES
 
 async function cargar(page, url) {
   await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
-  await page.waitForTimeout(7000);
+  await page.waitForTimeout(9000);
   // Sin scroll los <video> no estan en el DOM y los destinos todavia no existen.
   for (let r = 0; r < 3; r++) {
     for (let i = 0; i < 10; i++) { await page.mouse.wheel(0, 1400); await page.waitForTimeout(400); }
@@ -189,22 +189,48 @@ function imprimir(s) {
   const salida = arg('json');
 
   const b = await chromium.launch({ args: ['--no-sandbox'] });
-  const ctx = await b.newContext({ locale: 'es-AR', viewport: { width: 1500, height: 1100 } });
   const out = [];
-  for (const q of qs) {
-    const page = await ctx.newPage();
-    try {
-      const url = `https://www.facebook.com/ads/library/?active_status=active&ad_type=all`
-        + `&country=AR&q=${encodeURIComponent(q)}&search_type=keyword_unordered&media_type=all`;
-      await cargar(page, url);
-      const s = resumir(q, await extraer(page, n));
-      imprimir(s);
-      out.push(s);
-    } catch (e) {
-      console.error(`\n[${q}] FALLO: ${e.message.split('\n')[0]}`);
-      out.push({ query: q, error: e.message.split('\n')[0] });
+  for (let qi = 0; qi < qs.length; qi++) {
+    const q = qs[qi];
+    // Contexto nuevo por query. Con uno compartido, a partir de la 4a query la
+    // pagina dejaba de renderizar y el script devolvia 0 anuncios con la pagina
+    // cargando bien: un FALSO NEGATIVO que parece "no hay competencia".
+    const ctx = await b.newContext({ locale: 'es-AR', viewport: { width: 1500, height: 1100 } });
+    const url = `https://www.facebook.com/ads/library/?active_status=active&ad_type=all`
+      + `&country=AR&q=${encodeURIComponent(q)}&search_type=keyword_unordered&media_type=all`;
+    let s = null;
+    for (let intento = 1; intento <= 2 && !s; intento++) {
+      const page = await ctx.newPage();
+      try {
+        await cargar(page, url);
+        const r = await extraer(page, n);
+        // Guardia anti falso negativo: 0 anuncios Y sin total declarado no es
+        // "no hay competencia", es "no lei la pagina". Reintentar y, si sigue,
+        // marcarlo como SIN_LEER en vez de reportar un hueco que no se midio.
+        if (r.ads.length === 0 && !r.total) {
+          const txt = await page.evaluate(() => document.body.innerText || '');
+          const vacioReal = /No se encontraron|no coinciden|0 resultados/i.test(txt);
+          if (!vacioReal) {
+            console.error(`[${q}] intento ${intento}: 0 anuncios y sin total. `
+              + `len=${txt.length}. ${intento < 2 ? 'Reintentando...' : 'SIN_LEER.'}`);
+            await page.close();
+            if (intento < 2) { await new Promise((r2) => setTimeout(r2, 15000)); continue; }
+            out.push({ query: q, estado: 'SIN_LEER',
+              nota: 'La pagina no renderizo. NO interpretar como hueco: no se midio.' });
+            break;
+          }
+        }
+        s = resumir(q, r);
+        imprimir(s);
+        out.push(s);
+      } catch (e) {
+        console.error(`\n[${q}] FALLO: ${e.message.split('\n')[0]}`);
+        if (intento >= 2) out.push({ query: q, estado: 'ERROR', error: e.message.split('\n')[0] });
+      }
+      if (!page.isClosed()) await page.close();
     }
-    await page.close();
+    await ctx.close();
+    if (qi < qs.length - 1) await new Promise((r) => setTimeout(r, 12000));
   }
   await b.close();
   if (salida && typeof salida === 'string') {
