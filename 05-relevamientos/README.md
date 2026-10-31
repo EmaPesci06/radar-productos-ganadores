@@ -5,6 +5,7 @@ no lo reemplaza: el vault sigue siendo la fuente de verdad.
 
 | Archivo | Qué trae |
 |---|---|
+| `2026-10-31-costos-estimados-fisicos.md` | **Costo estimado de fabricación local de los 4 productos de descanso** y precio de venta derivado. Hallazgo: la tabla de markup del Doc A no aplica a fabricación local, manda el CPA breakeven |
 | `2026-10-31-radar-ar-top4.md` | **Verificación independiente del hueco de los 4 candidatos top** en Meta Ad Library AR. Tres objeciones, una confirmación. Cambia qué se lanza primero |
 | `2026-10-31-laboratorios-facon-y-anmat.md` | Short list de 5 laboratorios cosméticos a façon en AR con MOQ **desde 100 unidades**, y la Disp. ANMAT 7939/2025 confirmada en Boletín Oficial. Destraba el pendiente #2 de `GAPS.md` |
 

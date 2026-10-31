@@ -31,7 +31,7 @@ floja entra con score bajo.
 | `00-marco/03-lecciones-casos-previos.md` | Lo que ya nos pasó y no hay que repetir (incluye la primera importación real, sep-oct 2026) |
 | `00-marco/04-evidencia-web-2026.md` | Lo que dice la web hoy, con links y nivel de confianza declarado |
 | `01-scorecard/` | Matriz de decisión con pesos, gates de NO-GO y calculadora |
-| `02-costos/` | **`rentabilidad-ar.py`** (CPA y ROAS de breakeven, el número que manda), costo puesto en AR, y reglas de importación |
+| `02-costos/` | **`rentabilidad-ar.py`** (CPA y ROAS de breakeven, el número que manda), **`estimar-costo-fabricacion.py`** (costo de fabricación local sin cotización), costo puesto en AR, y reglas de importación |
 | `03-candidatos/` | Una ficha por candidato + long-list inicial |
 | `04-decision/decision-final.md` | El acta de decisión. Hoy: **desbloqueada, 16 candidatos cargados** |
 | `05-relevamientos/` | Investigación hecha desde el repo, fechada. Incluye `scripts/radar-ar.js`, el Radar AR en Playwright |

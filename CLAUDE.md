@@ -22,17 +22,26 @@ Repo de decisión de producto, no de código. Español rioplatense.
 2. **Los precios en ARS llevan fecha.** Con la inflación un benchmark vence en semanas.
 3. **El costo es el costo puesto en Argentina**, nunca el de Alibaba. Correr la
    calculadora, no estimar.
-4. **No inventar candidatos ni números.** Si falta un dato, se marca PENDIENTE. Un
+
+   Y ojo con cuál: `costo-puesto-ar.py` es para **importar**;
+   `estimar-costo-fabricacion.py` es para **fabricar acá**. No son intercambiables.
+
+4. **La tabla de markup del Doc A es para importación, no para fabricación local.**
+   Los 4 productos de descanso la fallan (×1,5 a ×2,8 contra ×3 a ×5), porque fabricando
+   acá el costo base es 3-4 veces más alto y ×5 da precios 2-3 veces por encima del ancla
+   de MELI. Para fabricación local el filtro es el **CPA de breakeven**, como dice M2-12.
+   Ver `05-relevamientos/2026-10-31-costos-estimados-fisicos.md`.
+5. **No inventar candidatos ni números.** Si falta un dato, se marca PENDIENTE. Un
    placeholder con pinta de dato real es peor que un hueco declarado.
-5. **Distinguir lo heredado de lo nuevo.** Todo lo que viene del vault es criterio del
+6. **Distinguir lo heredado de lo nuevo.** Todo lo que viene del vault es criterio del
    curso y manda. Lo que agregué yo va marcado como mío, con la fecha. Las tres
    correcciones del 31/10 están documentadas en el archivo donde ocurrió el error, no
    borradas: sirve saber qué estaba mal y por qué.
 
-6. **Un eje en 0-5 es bloqueante**, pase lo que pase con el total. El dispositivo
+7. **Un eje en 0-5 es bloqueante**, pase lo que pase con el total. El dispositivo
    antiatragantamiento tenía dolor y hueco publicitario, y murió por ANMAT Clase II.
 
-7. **Antes de aplicar la lista de exclusiones, preguntar de dónde viene el producto.**
+8. **Antes de aplicar la lista de exclusiones, preguntar de dónde viene el producto.**
    La lista es de **importar**. Fabricación local y laboratorio a façon no pasan por
    ninguna de esas trabas.
 
