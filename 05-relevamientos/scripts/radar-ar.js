@@ -6,9 +6,13 @@
  * Chromium + Playwright que ya vienen en el contenedor, sin depender de Claude in
  * Chrome ni de la extension de GetHookd.
  *
- * REQUISITO: `www.facebook.com` tiene que estar habilitado en Network access del
- * entorno. Hoy el proxy responde 403 a CONNECT. Ver
- * 05-relevamientos/2026-10-31-laboratorios-facon-y-anmat.md §4.
+ * REQUISITO (resuelto el 31/10/2026): en Network access del entorno tienen que estar
+ * habilitados `www.facebook.com`, `static.xx.fbcdn.net` (el JS que dibuja la pagina)
+ * y `*.fbcdn.net` (imagenes y videos de los creativos).
+ *
+ * Para DESCUBRIR marcas por dolor conviene usar radar-extract.js, que agrega por
+ * anunciante, marca los advertorials y resume los PROBADOS. Este script sirve para
+ * relevar UNA biblioteca por page_id y medir foco vs dispersion.
  *
  * Reglas duras que respeta (de la skill):
  *   - Solo lectura. No completa formularios, no compra, no se suscribe.
@@ -78,13 +82,19 @@ async function descubrirMarcas(page, query) {
   const url = `https://www.facebook.com/ads/library/?active_status=active&ad_type=all`
     + `&country=AR&q=${encodeURIComponent(query)}&search_type=keyword_unordered&media_type=all`;
   await cargar(page, url);
+  // 31/10/2026: Meta cambio el DOM. Los links de anunciante YA NO son
+  // `view_all_page_id`: ahora son `facebook.com/<page_id|vanity>/`. El selector
+  // viejo devolvia 0 marcas con la pagina renderizando bien.
   const marcas = await page.evaluate(() => {
+    const noAdv = /^\/(ads|policies|privacy|help|legal|business|about|terms|login|groups|watch|$)/;
     const m = {};
-    for (const a of document.querySelectorAll('a[href*="view_all_page_id"]')) {
-      const id = (a.href.match(/view_all_page_id=(\d+)/) || [])[1];
-      if (!id) continue;
-      const name = (a.innerText || '').trim();
-      if (name && !m[id]) m[id] = name;
+    for (const a of document.querySelectorAll('a[href*="facebook.com/"]')) {
+      let path;
+      try { path = new URL(a.href).pathname; } catch (e) { continue; }
+      if (noAdv.test(path)) continue;
+      const slug = path.replace(/^\/|\/$/g, '');
+      if (!slug || slug.includes('/')) continue;
+      if (!m[slug]) m[slug] = (a.innerText || '').trim() || slug;
     }
     return m;
   });
